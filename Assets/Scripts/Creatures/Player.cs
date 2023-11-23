@@ -14,6 +14,11 @@ public class Player : Creature
         Destroy(gameObject);
     }
 
+    public void UseBonus(Bonus bonus)
+    {
+
+    }
+
     private void GetInput()
     {
         InputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
