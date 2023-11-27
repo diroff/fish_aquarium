@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class BonusData : MonoBehaviour
+[CreateAssetMenu(fileName = "New BonusData", order = 51)]
+public class BonusData : ScriptableObject
 {
     [SerializeField] private float _bonusTime;
     [SerializeField] private Sprite _bonusIcon;
