@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.XR;
 
 public class Player : Creature
 {
@@ -27,10 +26,16 @@ public class Player : Creature
 
     public void UseBonus(Bonus bonus)
     {
+        if (bonus.GetType() == typeof(ShieldBonus))
+            UseShield(bonus);
+    }
+
+    private void UseShield(Bonus bonus)
+    {
+        _shieldBonus = bonus;
+
         bonus.BonusStarted.AddListener(EnableShield);
         bonus.BonusEnded.AddListener(DisableShield);
-
-        _shieldBonus = bonus;
     }
 
     private void EnableShield()
