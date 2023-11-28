@@ -6,6 +6,7 @@ public class Player : Creature
     [SerializeField] private GameObject _shield;
 
     private int _foodCount;
+    private int _foodMultiplier;
 
     private Bonus _shieldBonus;
 
@@ -33,16 +34,27 @@ public class Player : Creature
 
     public void AddFood(int count)
     {
-        _foodCount += count;
+        bool noMultiplier = _foodMultiplier == 0;
+
+        if (noMultiplier)
+            _foodMultiplier = 1;
+
+        _foodCount += (count * _foodMultiplier);
         FoodCountChanged?.Invoke(_foodCount);
-        Debug.Log("Food count:" + _foodCount);
+
+        if (noMultiplier)
+            _foodMultiplier = 0;
     }
 
     public void SpendFood(int count)
     {
         _foodCount -= count;
         FoodCountChanged?.Invoke(_foodCount);
-        Debug.Log("Food count:" + _foodCount);
+    }
+
+    public void AddFoodMultiplier(int value)
+    {
+        _foodMultiplier += value;
     }
 
     public void UseBonus(Bonus bonus)
