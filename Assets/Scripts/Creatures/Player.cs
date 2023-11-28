@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Creature
 {
     [SerializeField] private GameObject _shield;
 
+    private int _foodCount;
+
     private Bonus _shieldBonus;
+
+    public int FoodCount => _foodCount;
+
+    public UnityAction<int> FoodCountChanged;
 
     protected override void Update()
     {
@@ -22,6 +29,20 @@ public class Player : Creature
 
         base.Die();
         Destroy(gameObject);
+    }
+
+    public void AddFood(int count)
+    {
+        _foodCount += count;
+        FoodCountChanged?.Invoke(_foodCount);
+        Debug.Log("Food count:" + _foodCount);
+    }
+
+    public void SpendFood(int count)
+    {
+        _foodCount -= count;
+        FoodCountChanged?.Invoke(_foodCount);
+        Debug.Log("Food count:" + _foodCount);
     }
 
     public void UseBonus(Bonus bonus)
