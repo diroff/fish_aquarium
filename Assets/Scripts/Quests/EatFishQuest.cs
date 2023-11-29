@@ -14,6 +14,12 @@ public class EatFishQuest : QuantitativeQuest
         _player.FishAted -= AddFish;
     }
 
+    public override void CompleteQuest()
+    {
+        base.CompleteQuest();
+        _player.FishAted -= AddFish;
+    }
+
     private void AddFish()
     {
         AddCount(1);
