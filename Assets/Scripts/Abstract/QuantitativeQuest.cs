@@ -5,9 +5,11 @@ public abstract class QuantitativeQuest : Quest
 {
     [SerializeField] private int _requiredCount;
 
-    public UnityAction<int, int> QuestCountChanged;
-
     private int _currentCount;
+
+    public int RequiredCount => _requiredCount;
+
+    public UnityAction<int, int> QuestCountChanged;
 
     public void AddCount(int value)
     {
