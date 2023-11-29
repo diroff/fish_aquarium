@@ -11,10 +11,20 @@ public abstract class QuantitativeQuest : Quest
 
     public void AddCount(int value)
     {
+        if (IsQuestFinished)
+            return;
+
         _currentCount += value;
         QuestCountChanged?.Invoke(_currentCount, _requiredCount);
 
         if (_currentCount >= _requiredCount)
             CompleteQuest();
+
+        ShowProgress();
+    }
+
+    private void ShowProgress()
+    {
+        Debug.Log($"Current value:{_currentCount}/{_requiredCount}");
     }
 }
