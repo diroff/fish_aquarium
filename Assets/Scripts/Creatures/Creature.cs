@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Creature : MonoBehaviour
@@ -29,6 +30,8 @@ public class Creature : MonoBehaviour
     protected Rigidbody2D Rigidbody;
 
     public int Level => CurrentLevel;
+
+    public UnityAction FishAted;
 
     protected virtual void Awake()
     {
@@ -64,7 +67,6 @@ public class Creature : MonoBehaviour
 
     public virtual void Die()
     {
-        Debug.Log(this.gameObject + ":was dead");
     }
 
     public void AddLevel(int value)
@@ -79,6 +81,7 @@ public class Creature : MonoBehaviour
         Creature losingCreature = winingCreature == this ? creature : this;
 
         winingCreature.AddLevel(losingCreature.Level);
+        winingCreature.FishAted?.Invoke();
         losingCreature.Die();
     }
 
