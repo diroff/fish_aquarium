@@ -32,6 +32,7 @@ public class Creature : MonoBehaviour
     public int Level => CurrentLevel;
 
     public UnityAction FishAted;
+    public UnityAction<int, int> LevelChanged;
 
     protected virtual void Awake()
     {
@@ -80,8 +81,12 @@ public class Creature : MonoBehaviour
         Creature winingCreature = Level > creature.Level ? this : creature;
         Creature losingCreature = winingCreature == this ? creature : this;
 
+        int previousLevel = winingCreature.CurrentLevel;
+
         winingCreature.AddLevel(losingCreature.Level);
         winingCreature.FishAted?.Invoke();
+        winingCreature.LevelChanged?.Invoke(previousLevel, winingCreature.CurrentLevel);
+
         losingCreature.Die();
     }
 

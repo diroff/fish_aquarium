@@ -14,6 +14,12 @@ public class Player : Creature
 
     public UnityAction<int> FoodCountChanged;
 
+    protected override void Start()
+    {
+        base.Start();
+        LevelChanged?.Invoke(0, CurrentLevel);
+    }
+
     protected override void Update()
     {
         base.Update();
