@@ -123,52 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &202313107
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 202313109}
-  - component: {fileID: 202313108}
-  m_Layer: 0
-  m_Name: EatFishQuest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &202313108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202313107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 753aeff1e236f5a4d8a4812d38b27fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _requiredCount: 10
-  _player: {fileID: 1632512517}
---- !u!4 &202313109
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202313107}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471388652
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,17 +591,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8852786672916871411, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
   m_PrefabInstance: {fileID: 8852786674221729341}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1632512517 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8852786672916871407, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
-  m_PrefabInstance: {fileID: 8852786674221729341}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2331daf57c31f8b45a9c8412d72c951e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1751651394
 GameObject:
   m_ObjectHideFlags: 0
