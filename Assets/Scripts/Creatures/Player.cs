@@ -12,7 +12,7 @@ public class Player : Creature
 
     public int FoodCount => _foodCount;
 
-    public UnityAction<int> FoodCountChanged;
+    public UnityAction<int, int> FoodCountChanged;
 
     protected override void Start()
     {
@@ -45,8 +45,10 @@ public class Player : Creature
         if (noMultiplier)
             _foodMultiplier = 1;
 
+        int previousValue = _foodCount;
+
         _foodCount += (count * _foodMultiplier);
-        FoodCountChanged?.Invoke(_foodCount);
+        FoodCountChanged?.Invoke(previousValue, _foodCount);
 
         if (noMultiplier)
             _foodMultiplier = 0;
@@ -54,8 +56,10 @@ public class Player : Creature
 
     public void SpendFood(int count)
     {
+        int previousValue = _foodCount;
+
         _foodCount -= count;
-        FoodCountChanged?.Invoke(_foodCount);
+        FoodCountChanged?.Invoke(previousValue, _foodCount);
     }
 
     public void AddFoodMultiplier(int value)
