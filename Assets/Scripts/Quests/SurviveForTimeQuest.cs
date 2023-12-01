@@ -21,7 +21,5 @@ public class SurviveForTimeQuest : QuantitativeQuest
             AddCount((int)_currentTime - previousTime);
             yield return null;
         }
-
-        CompleteQuest();
     }
 }
