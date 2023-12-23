@@ -31,7 +31,6 @@ public abstract class Bonus : MonoBehaviour, IInteractable
         _spriteRenderer.enabled = false;
 
         Player = creature as Player;
-        Player.UseBonus(this);
         UseBonus();
     }
 

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Player : Creature
 {
-    [SerializeField] private GameObject _shield;
+    [SerializeField] private GameObject _shieldPlacement;
 
     private int _foodCount;
     private int _foodMultiplier;
@@ -11,6 +11,7 @@ public class Player : Creature
     private Bonus _shieldBonus;
 
     public int FoodCount => _foodCount;
+    public GameObject ShieldPlacement => _shieldPlacement;
 
     public UnityAction<int, int> FoodCountChanged;
 
@@ -30,7 +31,7 @@ public class Player : Creature
     {
         if (_shieldBonus != null)
         {
-            DisableShield();
+            _shieldBonus.StopBonus();
             return;
         }
 
@@ -67,32 +68,9 @@ public class Player : Creature
         _foodMultiplier += value;
     }
 
-    public void UseBonus(Bonus bonus)
-    {
-        if (bonus.GetType() == typeof(ShieldBonus))
-            UseShield(bonus);
-    }
-
-    private void UseShield(Bonus bonus)
+    public void SetShield(ShieldBonus bonus)
     {
         _shieldBonus = bonus;
-
-        bonus.BonusStarted.AddListener(EnableShield);
-        bonus.BonusEnded.AddListener(DisableShield);
-    }
-
-    private void EnableShield()
-    {
-        _shield.SetActive(true);
-    }
-
-    private void DisableShield()
-    {
-        _shieldBonus.BonusStarted.RemoveListener(EnableShield);
-        _shieldBonus.BonusEnded.RemoveListener(DisableShield);
-
-        _shield.SetActive(false);
-        _shieldBonus = null;
     }
 
     private void GetInput()
