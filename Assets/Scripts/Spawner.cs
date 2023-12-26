@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemyPrefab;
+    [SerializeField] private List<Enemy> _enemyPrefabs;
     [SerializeField] private bool _isRightSpawner;
 
     [Header("Spawn Range")]
@@ -13,6 +14,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float _yMaxPoint;
 
     private Vector3 _spawnPoint;
+    private Enemy _enemyPrefab;
 
     private void Start()
     {
@@ -38,6 +40,9 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         CalculateSpawnPosition();
+
+        _enemyPrefab = _enemyPrefabs[Random.Range(0, _enemyPrefabs.Count)];
+
         var enemy = Instantiate(_enemyPrefab, _spawnPoint, Quaternion.identity);
         enemy.Move(!_isRightSpawner);
     }
