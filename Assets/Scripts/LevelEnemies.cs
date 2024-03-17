@@ -16,16 +16,14 @@ public class LevelEnemies : MonoBehaviour
     [Space]
     [SerializeField] private LevelSpawners _levelSpawners;
 
+    private List<EnemySetting> _currentEnemies = new List<EnemySetting>();
+
+    private int _currentEnemyIndex;
+
     private void Start()
     {
+        PrepareEnemies();
         StartCoroutine(Spawn());
-    }
-
-    private IEnumerator SpawnTimer()
-    {
-        SpawnEnemy();
-        yield return new WaitForSeconds(_spawnDelay);
-        StartCoroutine(SpawnTimer());
     }
 
     private IEnumerator Spawn()
@@ -42,10 +40,33 @@ public class LevelEnemies : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        var enemy = _availableEnemies[UnityEngine.Random.Range(0, _availableEnemies.Count)];
-        int level = UnityEngine.Random.Range(enemy.MinLevel, enemy.MaxLevel);
+        TakeEnemy();
 
-        _levelSpawners.Spawn(enemy.EnemyPrefab, level);
+        var enemy = _availableEnemies[UnityEngine.Random.Range(0, _availableEnemies.Count)];
+        enemy.SetLevel(UnityEngine.Random.Range(enemy.MinLevel, enemy.MaxLevel));
+
+        _levelSpawners.Spawn(enemy.EnemyPrefab, enemy.CurrentLevel);
+
+        _currentEnemies.RemoveAt(_currentEnemyIndex);
+    }
+
+    private void TakeEnemy()
+    {
+        if (_currentEnemies.Count == 0)
+            PrepareEnemies();
+
+        _currentEnemyIndex = UnityEngine.Random.Range(0, _currentEnemies.Count);
+    }
+
+    private void PrepareEnemies()
+    {
+        foreach (var enemy in _availableEnemies)
+        {
+            for (int i = 0; i < enemy.MaxCount; i++)
+            {
+                _currentEnemies.Add(enemy);
+            }
+        }
     }
 }
 
@@ -55,11 +76,19 @@ public class EnemySetting
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private int _minLevel = 1; 
     [SerializeField] private int _maxLevel = 1; 
-    [SerializeField] private int _maxCount; 
+    [SerializeField] private int _maxCount;
+
+    private int _currentLevel = 1;
 
     public Enemy EnemyPrefab => _enemyPrefab;
 
     public int MinLevel => _minLevel;
     public int MaxLevel => _maxLevel;
     public int MaxCount => _maxCount;
+    public int CurrentLevel => _currentLevel;   
+
+    public void SetLevel(int level)
+    {
+        _currentLevel = level;
+    }
 }
