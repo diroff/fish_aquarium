@@ -74224,6 +74224,10 @@ MonoBehaviour:
     _minLevel: 1
     _maxLevel: 1
     _maxCount: 0
+  _spawnDelay: 2
+  _isSyncSpawn: 1
+  _syncSpawnMinDelay: 0.01
+  _syncSpawnMaxDelay: 0.02
   _levelSpawners: {fileID: 1212756828}
 --- !u!4 &1171964531
 Transform:

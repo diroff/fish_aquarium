@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelSpawners : MonoBehaviour
 {
@@ -7,14 +8,14 @@ public class LevelSpawners : MonoBehaviour
 
     private int _lastSpawnerNumber = 0;
 
+    public List<Spawner> Spawners => _spawners;
+
     public void Spawn(Enemy enemy, int level)
     {
         if (_lastSpawnerNumber >= _spawners.Count)
             _lastSpawnerNumber = 0;
 
         _spawners[_lastSpawnerNumber].Spawn(enemy, level);
-
-        Debug.Log($"Enemy was spawned on {_lastSpawnerNumber} spawner with {level} level");
 
         _lastSpawnerNumber++;
     }
