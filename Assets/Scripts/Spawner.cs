@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private List<Enemy> _enemyPrefabs;
     [SerializeField] private bool _isRightSpawner;
 
     [Header("Spawn Range")]
@@ -14,20 +11,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float _yMaxPoint;
 
     private Vector3 _spawnPoint;
-    private Enemy _enemyPrefab;
-
-    private void Start()
-    {
-        StartCoroutine(SpawnTimer());
-    }
-
-    private IEnumerator SpawnTimer()
-    {
-        Spawn();
-
-        yield return new WaitForSeconds(3f);
-        StartCoroutine(SpawnTimer());
-    }
 
     private void CalculateSpawnPosition()
     {
@@ -37,13 +20,12 @@ public class Spawner : MonoBehaviour
         _spawnPoint = new Vector3(xPosition, yPosition, 0f);
     }
 
-    public void Spawn()
+    public void Spawn(Enemy enemyPrefab, int level)
     {
         CalculateSpawnPosition();
 
-        _enemyPrefab = _enemyPrefabs[Random.Range(0, _enemyPrefabs.Count)];
-
-        var enemy = Instantiate(_enemyPrefab, _spawnPoint, Quaternion.identity);
+        var enemy = Instantiate(enemyPrefab, _spawnPoint, Quaternion.identity);
+        enemy.SetLevel(level);
         enemy.Move(!_isRightSpawner);
     }
 }

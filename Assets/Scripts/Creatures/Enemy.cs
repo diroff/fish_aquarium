@@ -38,4 +38,12 @@ public class Enemy : Creature, IInteractable
     {
         TryToEatOtherCreature(creature);
     }
+
+    public void SetLevel(int level)
+    {
+        if (level <= 0)
+            throw new System.Exception("Creature level can't be less 0!");
+
+        CurrentLevel = level;
+    }
 }
