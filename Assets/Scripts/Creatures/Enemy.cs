@@ -44,6 +44,7 @@ public class Enemy : Creature, IInteractable
             throw new System.Exception("Creature level can't be less 0!");
 
         CurrentLevel = level;
+        LevelChanged?.Invoke(0, level);
         UpdateScale();
     }
 }
