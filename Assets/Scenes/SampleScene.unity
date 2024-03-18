@@ -351,10 +351,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRightSpawner: 0
-  _xMinPoint: -9.5
-  _xMaxPoint: -11.5
-  _yMinPoint: -4
-  _yMaxPoint: 4
+  _xMinPoint: -1
+  _xMaxPoint: 1
+  _yMinPoint: -2.5
+  _yMaxPoint: 2.5
 --- !u!4 &471388654
 Transform:
   m_ObjectHideFlags: 0
@@ -74167,10 +74167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRightSpawner: 1
-  _xMinPoint: 9.5
-  _xMaxPoint: 11.5
-  _yMinPoint: -4
-  _yMaxPoint: 4
+  _xMinPoint: -1
+  _xMaxPoint: 1
+  _yMinPoint: -2.5
+  _yMaxPoint: 2.5
 --- !u!4 &1096409854
 Transform:
   m_ObjectHideFlags: 0
@@ -74180,7 +74180,7 @@ Transform:
   m_GameObject: {fileID: 1096409852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.75, y: 5.75, z: 0}
+  m_LocalPosition: {x: 11.5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74326,10 +74326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRightSpawner: 0
-  _xMinPoint: -9.5
-  _xMaxPoint: -11.5
-  _yMinPoint: -4
-  _yMaxPoint: 4
+  _xMinPoint: -1
+  _xMaxPoint: 1
+  _yMinPoint: -2.5
+  _yMaxPoint: 2.5
 --- !u!4 &1287235492
 Transform:
   m_ObjectHideFlags: 0
@@ -74339,7 +74339,7 @@ Transform:
   m_GameObject: {fileID: 1287235490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.5, y: 5.75, z: 0}
+  m_LocalPosition: {x: -11.5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74436,10 +74436,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRightSpawner: 1
-  _xMinPoint: 9.5
-  _xMaxPoint: 11.5
-  _yMinPoint: -4
-  _yMaxPoint: 4
+  _xMinPoint: -1
+  _xMaxPoint: 1
+  _yMinPoint: -2.5
+  _yMaxPoint: 2.5
 --- !u!4 &1751651396
 Transform:
   m_ObjectHideFlags: 0
@@ -74449,7 +74449,7 @@ Transform:
   m_GameObject: {fileID: 1751651394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.75, y: 0, z: 0}
+  m_LocalPosition: {x: 11.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81068,10 +81068,10 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 8852786674221729341}
-  - {fileID: 1751651396}
+  - {fileID: 1287235492}
   - {fileID: 471388654}
   - {fileID: 1096409854}
-  - {fileID: 1287235492}
+  - {fileID: 1751651396}
   - {fileID: 2829290108977831545}
   - {fileID: 437955169}
   - {fileID: 220195346}

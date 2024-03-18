@@ -14,8 +14,10 @@ public class Spawner : MonoBehaviour
 
     private void CalculateSpawnPosition()
     {
-        var xPosition = Random.Range(_xMinPoint, _xMaxPoint);
-        var yPosition = Random.Range(_yMinPoint, _yMaxPoint);
+        Vector3 spawnerPosition = transform.position;
+
+        var xPosition = Random.Range(spawnerPosition.x + _xMinPoint, spawnerPosition.x + _xMaxPoint);
+        var yPosition = Random.Range(spawnerPosition.y + _yMinPoint, spawnerPosition.y + _yMaxPoint);
 
         _spawnPoint = new Vector3(xPosition, yPosition, 0f);
     }
