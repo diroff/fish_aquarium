@@ -49,8 +49,6 @@ public class LevelEnemies : MonoBehaviour
 
         enemy.SetLevel(level);
 
-        Debug.Log($"Enemy was created with {level} lvl and sprite {enemy.EnemyPrefab}");
-
         _levelSpawners.Spawn(enemy.EnemyPrefab, enemy.CurrentLevel);
 
         _currentEnemies.RemoveAt(_currentEnemyIndex);
@@ -71,7 +69,6 @@ public class LevelEnemies : MonoBehaviour
             for (int i = 0; i < enemy.MaxCount; i++)
             {
                 _currentEnemies.Add(enemy);
-                Debug.Log($"{enemy.EnemyPrefab} was created ({enemy.MinLevel}-{enemy.MaxLevel}) level");
             }
         }
     }
