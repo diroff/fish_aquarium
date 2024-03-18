@@ -10,8 +10,8 @@ public class LevelEnemies : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _spawnDelay;
 
-    [SerializeField] private float _syncSpawnMinDelay = 0.01f; 
-    [SerializeField] private float _syncSpawnMaxDelay = 0.02f; 
+    [SerializeField] private float _syncSpawnMinDelay = 0.01f;
+    [SerializeField] private float _syncSpawnMaxDelay = 0.02f;
 
     [Space]
     [SerializeField] private LevelSpawners _levelSpawners;
@@ -42,8 +42,14 @@ public class LevelEnemies : MonoBehaviour
     {
         TakeEnemy();
 
-        var enemy = _availableEnemies[UnityEngine.Random.Range(0, _availableEnemies.Count)];
-        enemy.SetLevel(UnityEngine.Random.Range(enemy.MinLevel, enemy.MaxLevel));
+        int enemyNumber = _currentEnemyIndex;
+
+        var enemy = _currentEnemies[enemyNumber];
+        var level = UnityEngine.Random.Range(enemy.MinLevel, enemy.MaxLevel);
+
+        enemy.SetLevel(level);
+
+        Debug.Log($"Enemy was created with {level} lvl and sprite {enemy.EnemyPrefab}");
 
         _levelSpawners.Spawn(enemy.EnemyPrefab, enemy.CurrentLevel);
 
@@ -65,6 +71,7 @@ public class LevelEnemies : MonoBehaviour
             for (int i = 0; i < enemy.MaxCount; i++)
             {
                 _currentEnemies.Add(enemy);
+                Debug.Log($"{enemy.EnemyPrefab} was created ({enemy.MinLevel}-{enemy.MaxLevel}) level");
             }
         }
     }
@@ -74,8 +81,8 @@ public class LevelEnemies : MonoBehaviour
 public class EnemySetting
 {
     [SerializeField] private Enemy _enemyPrefab;
-    [SerializeField] private int _minLevel = 1; 
-    [SerializeField] private int _maxLevel = 1; 
+    [SerializeField] private int _minLevel = 1;
+    [SerializeField] private int _maxLevel = 1;
     [SerializeField] private int _maxCount;
 
     private int _currentLevel = 1;
@@ -85,7 +92,7 @@ public class EnemySetting
     public int MinLevel => _minLevel;
     public int MaxLevel => _maxLevel;
     public int MaxCount => _maxCount;
-    public int CurrentLevel => _currentLevel;   
+    public int CurrentLevel => _currentLevel;
 
     public void SetLevel(int level)
     {

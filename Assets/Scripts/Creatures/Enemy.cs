@@ -6,7 +6,7 @@ public class Enemy : Creature, IInteractable
 
     protected override void Start()
     {
-        base.Start();
+        UpdateScale();
         SetRandomSpeed();
     }
 
@@ -44,5 +44,6 @@ public class Enemy : Creature, IInteractable
             throw new System.Exception("Creature level can't be less 0!");
 
         CurrentLevel = level;
+        UpdateScale();
     }
 }
