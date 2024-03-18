@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class Player : Creature
 {
     [SerializeField] private GameObject _shieldPlacement;
+    [SerializeField] private DynamicJoystick _joystick;
 
     private int _foodCount;
     private int _foodMultiplier;
@@ -75,7 +76,7 @@ public class Player : Creature
 
     private void GetInput()
     {
-        InputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        InputVector = new Vector2(_joystick.Horizontal, _joystick.Vertical);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
