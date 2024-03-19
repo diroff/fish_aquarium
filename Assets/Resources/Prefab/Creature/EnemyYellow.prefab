@@ -127,7 +127,7 @@ MonoBehaviour:
   TurnSpeed: 80
   _spritePlacement: {fileID: 1211114554940379558}
   _startLevel: 1
-  _spriteSize: 0.8
+  _spriteSize: 0.32
 --- !u!114 &2538466244989684941
 MonoBehaviour:
   m_ObjectHideFlags: 0

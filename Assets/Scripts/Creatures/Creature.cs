@@ -35,6 +35,8 @@ public class Creature : MonoBehaviour
     public UnityAction FishAted;
     public UnityAction<int, int> LevelChanged;
 
+    private int _currentExperience;
+
     protected virtual void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
@@ -43,8 +45,7 @@ public class Creature : MonoBehaviour
 
     protected virtual void Start()
     {
-        CurrentLevel = _startLevel;
-        UpdateScale();
+        SetLevel(_startLevel);
     }
 
     protected virtual void Update()
@@ -75,7 +76,55 @@ public class Creature : MonoBehaviour
     public void AddLevel(int value)
     {
         CurrentLevel += value;
+
+        UpdateExperience();
+        UpdateLevel();
+    }
+
+    private void SetLevel(int value)
+    {
+        CurrentLevel = value;
+
+        if (CurrentLevel != 1)
+            CurrentLevel--;
+
+        UpdateExperience();
+        UpdateLevel();
+    }
+
+    private void UpdateExperience()
+    {
+        _currentExperience = (CurrentLevel * (CurrentLevel + 1)) / 2;
+
+        if (CurrentLevel == 1)
+            _currentExperience = 0;
+    }
+
+    public void UpdateLevel()
+    {
+        int level = 0;
+        int requiredExperience = 0;
+
+        while (requiredExperience <= _currentExperience)
+        {
+            level++;
+            requiredExperience += level;
+        }
+
+        CurrentLevel = level;
+
         UpdateScale();
+
+        int experienceForCurrentLevel = requiredExperience - level;
+
+        Debug.Log($"Current level: {CurrentLevel}");
+        Debug.Log($"Experience: {_currentExperience - experienceForCurrentLevel}/{requiredExperience - experienceForCurrentLevel}");
+    }
+
+    private void AddExperience(int value)
+    {
+        _currentExperience += value;
+        UpdateLevel();
     }
 
     public void TryToEatOtherCreature(Creature creature)
@@ -85,7 +134,7 @@ public class Creature : MonoBehaviour
 
         int previousLevel = winingCreature.CurrentLevel;
 
-        winingCreature.AddLevel(losingCreature.Level);
+        winingCreature.AddExperience(losingCreature.Level);
         winingCreature.FishAted?.Invoke();
         winingCreature.LevelChanged?.Invoke(previousLevel, winingCreature.CurrentLevel);
 

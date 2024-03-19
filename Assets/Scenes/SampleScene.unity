@@ -74601,7 +74601,7 @@ MonoBehaviour:
   _availableEnemies:
   - _enemyPrefab: {fileID: 1211114554625385885, guid: 5d25db8db56652f4bb30ab140970cf8b, type: 3}
     _minLevel: 1
-    _maxLevel: 15
+    _maxLevel: 3
     _maxCount: 10
   _spawnDelay: 2
   _syncSpawnMinDelay: 0.01
@@ -81581,7 +81581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1977684429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81961,6 +81961,10 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 438708201}
+    - target: {fileID: 8852786672916871407, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
+      propertyPath: _startLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8852786672916871409, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
       propertyPath: m_Name
       value: Player

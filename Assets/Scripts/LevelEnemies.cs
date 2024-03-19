@@ -43,9 +43,14 @@ public class LevelEnemies : MonoBehaviour
         TakeEnemy();
 
         int enemyNumber = _currentEnemyIndex;
-
         var enemy = _currentEnemies[enemyNumber];
-        var level = UnityEngine.Random.Range(enemy.MinLevel, enemy.MaxLevel);
+
+        int maxLevel = enemy.MaxLevel;
+
+        if (maxLevel != 1)
+            maxLevel++;
+
+        var level = UnityEngine.Random.Range(enemy.MinLevel, maxLevel);
 
         enemy.SetLevel(level);
 
