@@ -77,6 +77,9 @@ public class Creature : MonoBehaviour
     {
         CurrentLevel += value;
 
+        if (CurrentLevel != 1)
+            CurrentLevel--;
+
         UpdateExperience();
         UpdateLevel();
     }
@@ -119,6 +122,7 @@ public class Creature : MonoBehaviour
 
         Debug.Log($"Current level: {CurrentLevel}");
         Debug.Log($"Experience: {_currentExperience - experienceForCurrentLevel}/{requiredExperience - experienceForCurrentLevel}");
+        LevelChanged?.Invoke(CurrentLevel - 1, CurrentLevel);
     }
 
     private void AddExperience(int value)
@@ -136,7 +140,6 @@ public class Creature : MonoBehaviour
 
         winingCreature.AddExperience(losingCreature.Level);
         winingCreature.FishAted?.Invoke();
-        winingCreature.LevelChanged?.Invoke(previousLevel, winingCreature.CurrentLevel);
 
         losingCreature.Die();
     }
