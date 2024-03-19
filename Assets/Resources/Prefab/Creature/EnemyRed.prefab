@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1211114554940379560}
   - {fileID: 809252483367754941}
@@ -127,7 +127,7 @@ MonoBehaviour:
   TurnSpeed: 80
   _spritePlacement: {fileID: 1211114554940379558}
   _startLevel: 1
-  _spriteSize: 0.16
+  _spriteSize: 0.8
 --- !u!114 &9189097026237479839
 MonoBehaviour:
   m_ObjectHideFlags: 0

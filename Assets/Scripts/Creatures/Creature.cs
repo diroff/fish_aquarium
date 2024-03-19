@@ -23,6 +23,7 @@ public class Creature : MonoBehaviour
 
     private float _speedLimiter = 0.7f;
     private float _maxSpeedChange;
+    private float _baseScale;
 
     private bool _isMoving;
     protected bool NormalSprite = true;
@@ -37,6 +38,7 @@ public class Creature : MonoBehaviour
     protected virtual void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
+        _baseScale = transform.localScale.x;
     }
 
     protected virtual void Start()
@@ -61,7 +63,7 @@ public class Creature : MonoBehaviour
 
     protected void UpdateScale()
     {
-        float value = 1 + Level * _spriteSize / 4;
+        float value = _baseScale + Level * _spriteSize / 4;
 
         transform.localScale = new Vector3(value, value);
     }

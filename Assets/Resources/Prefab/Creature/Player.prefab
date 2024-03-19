@@ -382,8 +382,8 @@ MonoBehaviour:
   Decceleration: 52
   TurnSpeed: 80
   _spritePlacement: {fileID: 8852786674236239934}
-  _startLevel: 2
-  _spriteSize: 0.16
+  _startLevel: 1
+  _spriteSize: 0.8
   _shieldPlacement: {fileID: 555303410}
   _joystick: {fileID: 0}
 --- !u!114 &1730425823677872430
