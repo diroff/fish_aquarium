@@ -22,6 +22,7 @@ public class AchiveLevelQuest : QuantitativeQuest
 
     private void AddLevel(int previousLevel, int currentLevel)
     {
-        AddCount(currentLevel - previousLevel);
+        ResetProgress();
+        AddCount(currentLevel);
     }
 }

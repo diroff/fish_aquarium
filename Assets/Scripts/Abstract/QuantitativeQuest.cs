@@ -25,6 +25,12 @@ public abstract class QuantitativeQuest : Quest
         ShowProgress();
     }
 
+    public void ResetProgress()
+    {
+        _currentCount = 0;
+        QuestCountChanged?.Invoke(_currentCount, _requiredCount);
+    }
+
     private void ShowProgress()
     {
         Debug.Log($"Current value:{_currentCount}/{_requiredCount}");
