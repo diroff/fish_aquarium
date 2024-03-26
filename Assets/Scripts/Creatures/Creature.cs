@@ -122,8 +122,6 @@ public class Creature : MonoBehaviour
 
         int experienceForCurrentLevel = requiredExperience - level;
 
-        Debug.Log($"Current level: {CurrentLevel}");
-        Debug.Log($"Experience: {_currentExperience - experienceForCurrentLevel}/{requiredExperience - experienceForCurrentLevel}");
         LevelChanged?.Invoke(CurrentLevel - 1, CurrentLevel);
     }
 

@@ -21,18 +21,11 @@ public abstract class QuantitativeQuest : Quest
 
         if (_currentCount >= _requiredCount)
             CompleteQuest();
-
-        ShowProgress();
     }
 
     public void ResetProgress()
     {
         _currentCount = 0;
         QuestCountChanged?.Invoke(_currentCount, _requiredCount);
-    }
-
-    private void ShowProgress()
-    {
-        Debug.Log($"Current value:{_currentCount}/{_requiredCount}");
     }
 }
