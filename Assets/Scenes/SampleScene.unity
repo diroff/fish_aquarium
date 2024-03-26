@@ -468,6 +468,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &422778741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422778743}
+  - component: {fileID: 422778742}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &422778742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422778741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93280b369fb729648a44aae7ae375dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolCountModificator: 7
+--- !u!4 &422778743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422778741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437955166
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +597,7 @@ Transform:
   m_GameObject: {fileID: 437955166}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.5, y: 0, z: 0}
+  m_LocalPosition: {x: 25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74601,9 +74646,13 @@ MonoBehaviour:
   _availableEnemies:
   - _enemyPrefab: {fileID: 1211114554625385885, guid: 5d25db8db56652f4bb30ab140970cf8b, type: 3}
     _minLevel: 1
-    _maxLevel: 3
-    _maxCount: 10
-  _spawnDelay: 2
+    _maxLevel: 2
+    _maxCount: 3
+  - _enemyPrefab: {fileID: 1211114554625385885, guid: daf1fca37379b0e42b2acefae40ccde2, type: 3}
+    _minLevel: 5
+    _maxLevel: 10
+    _maxCount: 1
+  _spawnDelay: 3
   _syncSpawnMinDelay: 0.01
   _syncSpawnMaxDelay: 0.02
   _levelSpawners: {fileID: 1212756828}
@@ -81894,7 +81943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2829290109151195584, guid: 4e8815b3187b09d4d8447e4eee1d863e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -76.75
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2829290109151195584, guid: 4e8815b3187b09d4d8447e4eee1d863e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -82046,3 +82095,4 @@ SceneRoots:
   - {fileID: 1021917223}
   - {fileID: 75955876}
   - {fileID: 1722275671}
+  - {fileID: 422778743}

@@ -22,6 +22,7 @@ public class LevelEnemies : MonoBehaviour
 
     private void Start()
     {
+        ObjectPool.Instance.Initialize(_availableEnemies);
         PrepareEnemies();
         StartCoroutine(Spawn());
     }

@@ -26,8 +26,6 @@ public class Spawner : MonoBehaviour
     {
         CalculateSpawnPosition();
 
-        var enemy = Instantiate(enemyPrefab, _spawnPoint, Quaternion.identity);
-        enemy.SetLevel(level);
-        enemy.Move(!_isRightSpawner);
+        ObjectPool.Instance.SpawnFromPool(enemyPrefab, _spawnPoint, Quaternion.identity, level, !_isRightSpawner);
     }
 }

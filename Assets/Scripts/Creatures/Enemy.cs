@@ -18,7 +18,7 @@ public class Enemy : Creature, IInteractable
     public override void Die()
     {
         base.Die();
-        Destroy(gameObject);
+        ObjectPool.Instance.ReturnToPool(this);
     }
 
     private void SetRandomSpeed()
