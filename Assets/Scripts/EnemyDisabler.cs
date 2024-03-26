@@ -9,6 +9,6 @@ public class EnemyDisabler : MonoBehaviour
         if (enemy == null)
             return;
 
-        ObjectPool.Instance.ReturnToPool(enemy);
+        enemy.Die();
     }
 }

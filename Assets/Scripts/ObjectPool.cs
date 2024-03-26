@@ -5,21 +5,28 @@ public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private int _poolCountModificator;
 
-    public static ObjectPool Instance { get; private set; }
-
     private Dictionary<Enemy, Queue<Enemy>> _poolDictionary = new Dictionary<Enemy, Queue<Enemy>>();
     private Dictionary<Enemy, Enemy> _instanceToPrefabMap = new Dictionary<Enemy, Enemy>();
 
-    private void Awake()
+    private void OnEnable()
     {
-        if (Instance == null)
+        if (_poolDictionary.Count == 0)
+            return;
+
+        foreach (var dictionary in _poolDictionary)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            dictionary.Key.Died += ReturnToPool;
         }
-        else
+    }
+
+    private void OnDisable()
+    {
+        if (_poolDictionary.Count == 0)
+            return;
+
+        foreach (var dictionary in _poolDictionary)
         {
-            Destroy(gameObject);
+            dictionary.Key.Died -= ReturnToPool;
         }
     }
 
@@ -44,6 +51,7 @@ public class ObjectPool : MonoBehaviour
                 newEnemy.gameObject.SetActive(false);
                 newQueue.Enqueue(newEnemy);
                 _instanceToPrefabMap[newEnemy] = prefab;
+                newEnemy.Died += ReturnToPool;
             }
         }
     }
@@ -85,5 +93,10 @@ public class ObjectPool : MonoBehaviour
         {
             Debug.LogWarning("Trying to return an object to a pool that doesn't exist.");
         }
+    }
+
+    private void ReturnToPool(Creature creature)
+    {
+        ReturnToPool(creature as Enemy);
     }
 }

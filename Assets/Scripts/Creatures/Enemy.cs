@@ -15,12 +15,6 @@ public class Enemy : Creature, IInteractable
         base.Update();
     }
 
-    public override void Die()
-    {
-        base.Die();
-        ObjectPool.Instance.ReturnToPool(this);
-    }
-
     private void SetRandomSpeed()
     {
         _movementSpeed = Random.Range(0.1f, 0.49f);

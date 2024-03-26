@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelEnemies : MonoBehaviour
 {
     [SerializeField] private List<EnemySetting> _availableEnemies;
+    [SerializeField] private ObjectPool _enemyPool;
 
     [Header("Settings")]
     [SerializeField] private float _spawnDelay;
@@ -22,7 +23,7 @@ public class LevelEnemies : MonoBehaviour
 
     private void Start()
     {
-        ObjectPool.Instance.Initialize(_availableEnemies);
+        _enemyPool.Initialize(_availableEnemies);
         PrepareEnemies();
         StartCoroutine(Spawn());
     }

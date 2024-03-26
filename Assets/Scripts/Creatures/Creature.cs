@@ -34,6 +34,7 @@ public class Creature : MonoBehaviour
 
     public UnityAction FishAted;
     public UnityAction<int, int> LevelChanged;
+    public UnityAction<Creature> Died;
 
     private int _currentExperience;
 
@@ -71,6 +72,7 @@ public class Creature : MonoBehaviour
 
     public virtual void Die()
     {
+        Died?.Invoke(this);
     }
 
     public void AddLevel(int value)

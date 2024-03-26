@@ -22,10 +22,10 @@ public class Spawner : MonoBehaviour
         _spawnPoint = new Vector3(xPosition, yPosition, 0f);
     }
 
-    public void Spawn(Enemy enemyPrefab, int level)
+    public void Spawn(Enemy enemyPrefab, int level, ObjectPool objectPool)
     {
         CalculateSpawnPosition();
 
-        ObjectPool.Instance.SpawnFromPool(enemyPrefab, _spawnPoint, Quaternion.identity, level, !_isRightSpawner);
+        objectPool.SpawnFromPool(enemyPrefab, _spawnPoint, Quaternion.identity, level, !_isRightSpawner);
     }
 }

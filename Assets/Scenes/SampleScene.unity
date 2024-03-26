@@ -74652,6 +74652,7 @@ MonoBehaviour:
     _minLevel: 5
     _maxLevel: 10
     _maxCount: 1
+  _enemyPool: {fileID: 422778742}
   _spawnDelay: 3
   _syncSpawnMinDelay: 0.01
   _syncSpawnMaxDelay: 0.02
@@ -74705,6 +74706,7 @@ MonoBehaviour:
   - {fileID: 471388653}
   - {fileID: 1751651395}
   - {fileID: 1096409853}
+  _objectPool: {fileID: 422778742}
 --- !u!4 &1212756829
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelSpawners : MonoBehaviour
 {
     [SerializeField] private List<Spawner> _spawners;
+    [SerializeField] private ObjectPool _objectPool;
 
     private int _lastSpawnerNumber = 0;
 
@@ -14,7 +15,7 @@ public class LevelSpawners : MonoBehaviour
         if (_lastSpawnerNumber >= _spawners.Count)
             _lastSpawnerNumber = 0;
 
-        _spawners[_lastSpawnerNumber].Spawn(enemy, level);
+        _spawners[_lastSpawnerNumber].Spawn(enemy, level, _objectPool);
 
         _lastSpawnerNumber++;
     }
