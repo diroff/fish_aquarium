@@ -78,21 +78,13 @@ public class Creature : MonoBehaviour
     public void AddLevel(int value)
     {
         CurrentLevel += value;
-
-        if (CurrentLevel != 1)
-            CurrentLevel--;
-
         UpdateExperience();
         UpdateLevel();
     }
 
-    private void SetLevel(int value)
+    protected void SetLevel(int value)
     {
         CurrentLevel = value;
-
-        if (CurrentLevel != 1)
-            CurrentLevel--;
-
         UpdateExperience();
         UpdateLevel();
     }
@@ -103,6 +95,9 @@ public class Creature : MonoBehaviour
 
         if (CurrentLevel == 1)
             _currentExperience = 0;
+
+        if(CurrentLevel == 2)
+            _currentExperience = 1;
     }
 
     public void UpdateLevel()

@@ -47,18 +47,28 @@ public class LevelEnemies : MonoBehaviour
         int enemyNumber = _currentEnemyIndex;
         var enemy = _currentEnemies[enemyNumber];
 
+        enemy.SetLevel(GetLevel(enemy));
+
+        _levelSpawners.Spawn(enemy.EnemyPrefab, enemy.CurrentLevel);
+
+        _currentEnemies.RemoveAt(_currentEnemyIndex);
+    }
+
+    private int GetLevel(EnemySetting enemy)
+    {
         int maxLevel = enemy.MaxLevel;
 
         if (maxLevel != 1)
             maxLevel++;
 
-        var level = UnityEngine.Random.Range(enemy.MinLevel, maxLevel);
+        int level;
 
-        enemy.SetLevel(level);
+        if (enemy.MinLevel == enemy.MaxLevel)
+            level = enemy.MinLevel;
+        else
+            level = UnityEngine.Random.Range(enemy.MinLevel, maxLevel);
 
-        _levelSpawners.Spawn(enemy.EnemyPrefab, enemy.CurrentLevel);
-
-        _currentEnemies.RemoveAt(_currentEnemyIndex);
+        return level;
     }
 
     private void TakeEnemy()
