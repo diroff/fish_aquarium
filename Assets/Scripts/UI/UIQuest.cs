@@ -27,7 +27,7 @@ public class UIQuest : MonoBehaviour
     public virtual void SetQuest(Quest quest)
     {
         Quest = quest;
-        QuestName.text = quest.gameObject.name;
+        QuestName.text = quest.QuestGoal;
         Quest.QuestCompleted += OnQuestCompleted;
     }
 

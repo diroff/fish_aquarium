@@ -11,6 +11,11 @@ public abstract class QuantitativeQuest : Quest
 
     public UnityAction<int, int> QuestCountChanged;
 
+    private void Start()
+    {
+        QuestCountChanged?.Invoke(_currentCount, _requiredCount);
+    }
+
     public void AddCount(int value)
     {
         if (IsQuestFinished)

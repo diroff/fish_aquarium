@@ -30,10 +30,10 @@
     {
         if (IsCompleted)
         {
-            QuestName.text = _quest.name + ":" + requiredCount + "/" + requiredCount;
+            QuestName.text = _quest.QuestGoal + ":" + requiredCount + "/" + requiredCount;
             return;
         }
 
-        QuestName.text = _quest.name + ":" + currentCount + "/" + requiredCount;
+        QuestName.text = _quest.QuestGoal + ":" + currentCount + "/" + requiredCount;
     }
 }

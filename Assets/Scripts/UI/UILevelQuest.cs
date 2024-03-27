@@ -8,7 +8,7 @@ public class UILevelQuest : MonoBehaviour
     [SerializeField] private Level _level;
     [SerializeField] private GameObject _questPanel;
 
-    private void Start()
+    private void Awake()
     {
         PrepareQuests();
     }
@@ -18,15 +18,21 @@ public class UILevelQuest : MonoBehaviour
         foreach (var quest in _level.Quests)
         {
             if(quest is QuantitativeQuest)
-            {
-                var uiQuest = Instantiate(_quantitativeQuestPrefab, _questPanel.transform);
-                uiQuest.SetQuest(quest);
-            }
+                PrepareQuantitativeQuest(quest);
             else
-            {
-                var uiQuest = Instantiate(_questPrefab, _questPanel.transform);
-                uiQuest.SetQuest(quest);
-            }
+                PrepareSimpleQuest(quest);
         }
+    }
+
+    private void PrepareSimpleQuest(Quest quest)
+    {
+        var uiQuest = Instantiate(_questPrefab, _questPanel.transform);
+        uiQuest.SetQuest(quest);
+    }
+
+    private void PrepareQuantitativeQuest(Quest quest)
+    {
+        var uiQuest = Instantiate(_quantitativeQuestPrefab, _questPanel.transform);
+        uiQuest.SetQuest(quest);
     }
 }

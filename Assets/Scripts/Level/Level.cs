@@ -5,20 +5,12 @@ using UnityEngine.Events;
 
 public class Level : MonoBehaviour
 {
-    private List<Quest> _quests;
+    [SerializeField] private List<Quest> _quests;
     private int _questsCompleted;
 
     public List<Quest> Quests => _quests;
 
     public UnityAction LevelCompleted;
-
-    private void Awake()
-    {
-        _quests = GetComponentsInChildren<Quest>().ToList();
-
-        if (_quests.Count == 0)
-            Destroy(gameObject);
-    }
 
     private void OnEnable()
     {
