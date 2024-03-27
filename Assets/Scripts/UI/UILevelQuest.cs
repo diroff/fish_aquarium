@@ -3,6 +3,8 @@ using UnityEngine;
 public class UILevelQuest : MonoBehaviour
 {
     [SerializeField] private UIQuest _questPrefab;
+    [SerializeField] private UIQuantitativeQuest _quantitativeQuestPrefab;
+
     [SerializeField] private Level _level;
     [SerializeField] private GameObject _questPanel;
 
@@ -15,8 +17,16 @@ public class UILevelQuest : MonoBehaviour
     {
         foreach (var quest in _level.Quests)
         {
-            var uiQuest = Instantiate(_questPrefab, _questPanel.transform);
-            uiQuest.SetQuest(quest);
+            if(quest is QuantitativeQuest)
+            {
+                var uiQuest = Instantiate(_quantitativeQuestPrefab, _questPanel.transform);
+                uiQuest.SetQuest(quest);
+            }
+            else
+            {
+                var uiQuest = Instantiate(_questPrefab, _questPanel.transform);
+                uiQuest.SetQuest(quest);
+            }
         }
     }
 }

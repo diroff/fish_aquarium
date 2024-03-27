@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3929348423837230352}
   - component: {fileID: 5022745497152640019}
   - component: {fileID: 773166233746789749}
-  - component: {fileID: 4331408957228270499}
+  - component: {fileID: 5717930285616551787}
   m_Layer: 5
-  m_Name: UIQuest
+  m_Name: UIQuantitativeQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4331408957228270499
+--- !u!114 &5717930285616551787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 517191909471250152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c061350318a4946bdfa5594d21b988, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fd26cf1e287ecf49926557032d51961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   QuestName: {fileID: 1882005973107191739}

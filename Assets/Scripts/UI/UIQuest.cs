@@ -3,39 +3,39 @@ using UnityEngine;
 
 public class UIQuest : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _questName;
+    [SerializeField] protected TextMeshProUGUI QuestName;
 
-    private Quest _quest;
-    private bool _isCompleted = false;
+    protected Quest Quest;
+    protected bool IsCompleted = false;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        if (_quest == null)
+        if (Quest == null)
             return;
 
-        _quest.QuestCompleted += OnQuestCompleted;
+        Quest.QuestCompleted += OnQuestCompleted;
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
-        if (_quest == null)
+        if (Quest == null)
             return;
 
-        _quest.QuestCompleted -= OnQuestCompleted;
+        Quest.QuestCompleted -= OnQuestCompleted;
     }
 
-    public void SetQuest(Quest quest)
+    public virtual void SetQuest(Quest quest)
     {
-        _quest = quest;
-        _questName.text = quest.gameObject.name;
-        _quest.QuestCompleted += OnQuestCompleted;
+        Quest = quest;
+        QuestName.text = quest.gameObject.name;
+        Quest.QuestCompleted += OnQuestCompleted;
     }
 
     private void OnQuestCompleted()
     {
         //later
 
-        _questName.fontStyle = FontStyles.Strikethrough;
-        _isCompleted = true;
+        QuestName.fontStyle = FontStyles.Strikethrough;
+        IsCompleted = true;
     }
 }
