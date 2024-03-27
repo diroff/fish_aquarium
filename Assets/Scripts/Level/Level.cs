@@ -8,6 +8,8 @@ public class Level : MonoBehaviour
     private List<Quest> _quests;
     private int _questsCompleted;
 
+    public List<Quest> Quests => _quests;
+
     public UnityAction LevelCompleted;
 
     private void Awake()
