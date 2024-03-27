@@ -37,7 +37,19 @@ public class Player : Creature
         }
 
         base.Die();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public void Respawn()
+    {
+        gameObject.SetActive(true);
+        SetImmortallity();
+    }
+
+    private void SetImmortallity()
+    {
+        //later
+        gameObject.transform.position = Vector3.zero;
     }
 
     public void AddFood(int count)
