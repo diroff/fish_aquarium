@@ -4,9 +4,18 @@ public class UIBonusCreator : MonoBehaviour
 {
     [SerializeField] private Bonus _bonus;
     [SerializeField] private UIBonus _bonusIndicatorPrefab;
-    [SerializeField] private GameObject _uiPlacement;
+    [SerializeField] private GameObject _uiStartPlacement;
 
     private UIBonus _indicator;
+    private GameObject _uiPlacement;
+
+    private void Awake()
+    {
+        if (_uiStartPlacement == null)
+            return;
+
+        _uiPlacement = _uiStartPlacement;
+    }
 
     private void OnEnable()
     {
@@ -20,6 +29,11 @@ public class UIBonusCreator : MonoBehaviour
         _bonus.BonusStarted.RemoveListener(CreateBonusUI);
         _bonus.BonusEnded.RemoveListener(() => Destroy(_indicator.gameObject));
         _bonus.BonusTimeChanged -= (OnBonusTimeChanged);
+    }
+
+    public void SetPlacement(GameObject placement)
+    {
+        _uiPlacement = placement;
     }
 
     private void CreateBonusUI()

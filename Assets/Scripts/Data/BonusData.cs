@@ -8,4 +8,15 @@ public class BonusData : ScriptableObject
 
     public float BonusTime => _bonusTime;
     public Sprite BonusIcon => _bonusIcon;
+
+    public void SetTime(float time)
+    {
+        if (time <= 0)
+        {
+            Debug.LogError("Bonus time less 0");
+            return;
+        }
+
+        _bonusTime = time;
+    }
 }
