@@ -17,6 +17,10 @@ public abstract class Bonus : MonoBehaviour, IInteractable
     private BoxCollider2D _boxCollider;
     private SpriteRenderer _spriteRenderer;
 
+    private bool _bonusWasTaked = false;
+
+    private float _currentTimeToDestroy = 0f;
+
     public BonusData BonusData => _bonusData;
 
     private void Awake()
@@ -25,12 +29,18 @@ public abstract class Bonus : MonoBehaviour, IInteractable
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        StartCoroutine(TimeDestroyChecker());
+    }
+
     public virtual void Interact(Creature creature)
     {
         _boxCollider.enabled = false;
         _spriteRenderer.enabled = false;
 
         Player = creature as Player;
+        _bonusWasTaked = true;
         UseBonus();
     }
 
@@ -57,5 +67,17 @@ public abstract class Bonus : MonoBehaviour, IInteractable
         }
 
         StopBonus();
+    }
+
+    private IEnumerator TimeDestroyChecker()
+    {
+        while (_currentTimeToDestroy <= _bonusData.TimeBeforeDestroying && !_bonusWasTaked)
+        {
+            _currentTimeToDestroy += Time.deltaTime;
+            yield return null;
+        }
+
+        if (!_bonusWasTaked)
+            Destroy(gameObject);
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 public class BonusData : ScriptableObject
 {
     [SerializeField] private float _bonusTime;
+    [SerializeField] private float _timeBeforeDestroying = 5f;
     [SerializeField] private Sprite _bonusIcon;
 
     public float BonusTime => _bonusTime;
+    public float TimeBeforeDestroying => _timeBeforeDestroying;
     public Sprite BonusIcon => _bonusIcon;
 
     public void SetTime(float time)

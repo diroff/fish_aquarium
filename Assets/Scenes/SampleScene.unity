@@ -74505,10 +74505,12 @@ MonoBehaviour:
   _settings:
   - _bonusPrefab: {fileID: 7303032508110835931, guid: 6ba78171ab0ae5c4cb9cab04b72f6611, type: 3}
     _bonusTime: 10
-    _timeBeforeSpawn: 1
+    _timeBeforeSpawn: 5
+    _timeBeforeDestroyBonus: 2
   - _bonusPrefab: {fileID: 5470198261243906183, guid: e9d8d836d7ecf504da8284ed9ba4b92c, type: 3}
     _bonusTime: 15
     _timeBeforeSpawn: 15
+    _timeBeforeDestroyBonus: 12
   _spawner: {fileID: 1429179850}
 --- !u!4 &1177072116
 Transform:
@@ -74825,8 +74827,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiPanel: {fileID: 1781770552}
-  _minPosition: {x: -5, y: 3}
-  _maxPosition: {x: 5, y: -3}
+  _minPosition: {x: -10, y: 6.5}
+  _maxPosition: {x: 10, y: -6.5}
 --- !u!4 &1429179851
 Transform:
   m_ObjectHideFlags: 0

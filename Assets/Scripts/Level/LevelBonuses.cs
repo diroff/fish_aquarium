@@ -54,8 +54,10 @@ public class BonusSetting
     [SerializeField] private Bonus _bonusPrefab;
     [SerializeField] private float _bonusTime;
     [SerializeField] private float _timeBeforeSpawn;
+    [SerializeField] private float _timeBeforeDestroyBonus; 
 
     public Bonus BonusPrefab => _bonusPrefab;
     public float TimeBeforeSpawn => _timeBeforeSpawn; 
     public float BonusTime => _bonusTime; 
+    public float TimeBeforeDestroyBonus => _timeBeforeDestroyBonus;
 }
