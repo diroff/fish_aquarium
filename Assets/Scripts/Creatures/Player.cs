@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Player : Creature
 {
     [SerializeField] private GameObject _shieldPlacement;
+    [SerializeField] private GameObject _immortalPlacement;
     [SerializeField] private DynamicJoystick _joystick;
 
     private int _foodCount;
@@ -42,6 +43,18 @@ public class Player : Creature
 
         base.Die();
         gameObject.SetActive(false);
+    }
+
+    protected override void EnableImmortality()
+    {
+        base.EnableImmortality();
+        _immortalPlacement.SetActive(true);
+    }
+
+    protected override void DisableImmortality()
+    {
+        base.DisableImmortality();
+        _immortalPlacement.SetActive(false);
     }
 
     public void Respawn()

@@ -144,12 +144,12 @@ public class Creature : MonoBehaviour
         losingCreature.Die();
     }
 
-    protected void EnableImmortality()
+    protected virtual void EnableImmortality()
     {
         IsImmortal = true;
     }
 
-    protected void DisableImmortality()
+    protected virtual void DisableImmortality()
     {
         IsImmortal = false;
     }

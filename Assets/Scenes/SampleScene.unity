@@ -74505,8 +74505,8 @@ MonoBehaviour:
   _settings:
   - _bonusPrefab: {fileID: 7303032508110835931, guid: 6ba78171ab0ae5c4cb9cab04b72f6611, type: 3}
     _bonusTime: 10
-    _timeBeforeSpawn: 5
-    _timeBeforeDestroyBonus: 2
+    _timeBeforeSpawn: 1
+    _timeBeforeDestroyBonus: 5
   - _bonusPrefab: {fileID: 5470198261243906183, guid: e9d8d836d7ecf504da8284ed9ba4b92c, type: 3}
     _bonusTime: 15
     _timeBeforeSpawn: 15
@@ -83246,17 +83246,9 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 438708201}
-    - target: {fileID: 8852786672916871407, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
-      propertyPath: _startLevel
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8852786672916871409, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8852786672916871411, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8852786672916871411, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
       propertyPath: m_LocalPosition.x
