@@ -12,6 +12,8 @@ public class Creature : MonoBehaviour
 
     [Space]
     [SerializeField] private GameObject _spritePlacement;
+    [SerializeField] private Animator _animator;
+
     [SerializeField] private int _startLevel;
     [SerializeField] private float _spriteSize = 0.16f;
 
@@ -98,7 +100,7 @@ public class Creature : MonoBehaviour
         if (CurrentLevel == 1)
             _currentExperience = 0;
 
-        if(CurrentLevel == 2)
+        if (CurrentLevel == 2)
             _currentExperience = 1;
     }
 
@@ -158,6 +160,8 @@ public class Creature : MonoBehaviour
     {
         if (InputVector.x != 0)
         {
+            _animator.SetBool("Moving", true);
+
             if (InputVector.x > 0)
             {
                 _spritePlacement.transform.localScale = new Vector3(-1, 1, 1);
@@ -169,6 +173,8 @@ public class Creature : MonoBehaviour
                 NormalSprite = false;
             }
         }
+        else
+            _animator.SetBool("Moving", false);
     }
 
     private void Move()
