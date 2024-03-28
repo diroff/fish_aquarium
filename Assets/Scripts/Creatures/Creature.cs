@@ -160,12 +160,12 @@ public class Creature : MonoBehaviour
         {
             if (InputVector.x > 0)
             {
-                _spritePlacement.transform.localScale = Vector3.one;
+                _spritePlacement.transform.localScale = new Vector3(-1, 1, 1);
                 NormalSprite = true;
             }
             else
             {
-                _spritePlacement.transform.localScale = new Vector3(-1, 1, 1);
+                _spritePlacement.transform.localScale = Vector3.one;
                 NormalSprite = false;
             }
         }

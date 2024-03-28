@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ShieldBonusData
   m_EditorClassIdentifier: 
   _bonusTime: 5
-  _bonusIcon: {fileID: 21300000, guid: 4c8fa6a213a96844eb84be195d96dcb8, type: 3}
+  _timeBeforeDestroying: 5
+  _bonusIcon: {fileID: -193432122, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}
