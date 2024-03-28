@@ -28,6 +28,8 @@ public class Creature : MonoBehaviour
     private bool _isMoving;
     protected bool NormalSprite = true;
 
+    protected bool IsImmortal = false;
+
     protected Rigidbody2D Rigidbody;
 
     public int Level => CurrentLevel;
@@ -131,12 +133,25 @@ public class Creature : MonoBehaviour
         Creature winingCreature = Level > creature.Level ? this : creature;
         Creature losingCreature = winingCreature == this ? creature : this;
 
+        if (winingCreature.IsImmortal || losingCreature.IsImmortal)
+            return;
+
         int previousLevel = winingCreature.CurrentLevel;
 
         winingCreature.AddExperience(losingCreature.Level);
         winingCreature.FishAted?.Invoke();
 
         losingCreature.Die();
+    }
+
+    protected void EnableImmortality()
+    {
+        IsImmortal = true;
+    }
+
+    protected void DisableImmortality()
+    {
+        IsImmortal = false;
     }
 
     protected void ChangeSpriteDirection()

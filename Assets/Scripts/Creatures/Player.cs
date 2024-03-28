@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,8 @@ public class Player : Creature
     private int _foodMultiplier;
 
     private Bonus _shieldBonus;
+
+    private float _currentImmortalTime = 0f;
 
     public int FoodCount => _foodCount;
     public GameObject ShieldPlacement => _shieldPlacement;
@@ -33,6 +36,7 @@ public class Player : Creature
         if (_shieldBonus != null)
         {
             _shieldBonus.StopBonus();
+            SetImmortallity(1f);
             return;
         }
 
@@ -43,13 +47,26 @@ public class Player : Creature
     public void Respawn()
     {
         gameObject.SetActive(true);
-        SetImmortallity();
+        SetImmortallity(2f);
     }
 
-    private void SetImmortallity()
+    private void SetImmortallity(float immortalTime)
     {
-        //later
-        gameObject.transform.position = Vector3.zero;
+        StartCoroutine(StartImmortallity(immortalTime));
+    }
+
+    private IEnumerator StartImmortallity(float immortalTime)
+    {
+        EnableImmortality();
+        _currentImmortalTime = 0f;
+
+        while(_currentImmortalTime < immortalTime)
+        {
+            _currentImmortalTime += Time.deltaTime;
+            yield return null;
+        }
+
+        DisableImmortality();
     }
 
     public void AddFood(int count)
