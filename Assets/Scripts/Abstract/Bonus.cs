@@ -9,7 +9,7 @@ public abstract class Bonus : MonoBehaviour, IInteractable
     
     public UnityEvent BonusStarted;
     public UnityEvent BonusEnded;
-    public UnityEvent<float> BonusTimeChanged;
+    public UnityAction<float, float> BonusTimeChanged;
 
     protected float CurrentTime;
     protected Player Player;
@@ -52,7 +52,7 @@ public abstract class Bonus : MonoBehaviour, IInteractable
         while (CurrentTime > 0)
         {
             CurrentTime -= Time.deltaTime;
-            BonusTimeChanged?.Invoke(CurrentTime);
+            BonusTimeChanged?.Invoke(CurrentTime, _bonusData.BonusTime);
             yield return null;
         }
 
