@@ -19,13 +19,11 @@ public class UIGameOverPanel : MonoBehaviour
     private void OnPlayerDied(Creature creature)
     {
         _gameOverPanel.SetActive(true);
-        _time.StopTime();
     }
 
     public void ResumeGame()
     {
         _gameOverPanel.SetActive(false);
-        _time.StartTime();
         _player.Respawn();
     }
 }
