@@ -50948,6 +50948,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2331daf57c31f8b45a9c8412d72c951e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1820785275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1820785277}
+  - component: {fileID: 1820785276}
+  m_Layer: 0
+  m_Name: EffectCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1820785276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820785275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4a829e2bf24444db2d6ae22dfd5f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effectPrefab: {fileID: 2461067855034483604, guid: 428a8b3cf220fdb4b89ddda5b52d2172, type: 3}
+  _effectCount: 15
+  _objectPool: {fileID: 422778742}
+--- !u!4 &1820785277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820785275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1887598201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62787,16 +62834,28 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
+      propertyPath: _availableEnemies.Array.data[0]._maxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
+      propertyPath: _availableEnemies.Array.data[1]._maxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
+      propertyPath: _availableEnemies.Array.data[1]._minLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
       propertyPath: _availableEnemies.Array.data[2]._maxCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
       propertyPath: _availableEnemies.Array.data[2]._maxLevel
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
       propertyPath: _availableEnemies.Array.data[2]._minLevel
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
       propertyPath: _availableEnemies.Array.data[2]._enemyPrefab
@@ -62886,6 +62945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8852786672916871409, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8852786672916871411, guid: 63f2459e0bd56074390c2df2bff78536, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -62962,3 +63025,4 @@ SceneRoots:
   - {fileID: 7619689986824002110}
   - {fileID: 1177072116}
   - {fileID: 1429179851}
+  - {fileID: 1820785277}

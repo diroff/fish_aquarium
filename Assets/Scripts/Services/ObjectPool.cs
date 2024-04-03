@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -7,6 +8,13 @@ public class ObjectPool : MonoBehaviour
 
     private Dictionary<Enemy, Queue<Enemy>> _poolDictionary = new Dictionary<Enemy, Queue<Enemy>>();
     private Dictionary<Enemy, Enemy> _instanceToPrefabMap = new Dictionary<Enemy, Enemy>();
+
+    private List<Enemy> _currentEnimies = new List<Enemy>();
+
+    public List<Enemy> CurrentEnemies => _currentEnimies;
+
+    public UnityAction<Enemy> EnemyWasAdded;
+    public UnityAction<Enemy> EnemyWasRemoved;
 
     private void OnEnable()
     {
@@ -78,12 +86,17 @@ public class ObjectPool : MonoBehaviour
         enemyToSpawn.SetEnemyLevel(level);
         enemyToSpawn.Move(isRightSpawner);
 
+        _currentEnimies.Add(enemyToSpawn);
+        EnemyWasAdded?.Invoke(enemyToSpawn);
+
         return enemyToSpawn;
     }
 
     public void ReturnToPool(Enemy enemy)
     {
         enemy.gameObject.SetActive(false);
+        _currentEnimies.Remove(enemy);
+        EnemyWasRemoved?.Invoke(enemy);
 
         if (_instanceToPrefabMap.TryGetValue(enemy, out Enemy prefab) && _poolDictionary.ContainsKey(prefab))
         {

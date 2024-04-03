@@ -39,6 +39,7 @@ public class Creature : MonoBehaviour
     public UnityAction FishAted;
     public UnityAction<int, int> LevelChanged;
     public UnityAction<Creature> Died;
+    public UnityAction<Vector2> DiedOnPosition;
 
     private int _currentExperience;
 
@@ -76,6 +77,7 @@ public class Creature : MonoBehaviour
 
     public virtual void Die()
     {
+        DiedOnPosition?.Invoke(transform.position);
         Died?.Invoke(this);
     }
 
