@@ -39,7 +39,7 @@ public class Creature : MonoBehaviour
     public UnityAction FishAted;
     public UnityAction<int, int> LevelChanged;
     public UnityAction<Creature> Died;
-    public UnityAction<Vector2> DiedOnPosition;
+    public UnityAction<Vector2> WasAtedOnPosition;
 
     private int _currentExperience;
 
@@ -77,7 +77,6 @@ public class Creature : MonoBehaviour
 
     public virtual void Die()
     {
-        DiedOnPosition?.Invoke(transform.position);
         Died?.Invoke(this);
     }
 
@@ -145,6 +144,7 @@ public class Creature : MonoBehaviour
         winingCreature.AddExperience(losingCreature.Level);
         winingCreature.FishAted?.Invoke();
 
+        losingCreature.WasAtedOnPosition?.Invoke(transform.position);
         losingCreature.Die();
     }
 

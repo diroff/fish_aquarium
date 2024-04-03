@@ -50978,7 +50978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effectPrefab: {fileID: 2461067855034483604, guid: 428a8b3cf220fdb4b89ddda5b52d2172, type: 3}
-  _effectCount: 15
+  _effectCount: 8
   _objectPool: {fileID: 422778742}
 --- !u!4 &1820785277
 Transform:

@@ -14,9 +14,7 @@ public class EffectCreator : MonoBehaviour
     {
         for (int i = 0; i < _effectCount; i++)
         {
-            var effect = Instantiate(_effectPrefab);
-            _effects.Enqueue(effect);
-            effect.HideEffect();
+            CreateEffect();
         }
     }
 
@@ -29,9 +27,7 @@ public class EffectCreator : MonoBehaviour
             return;
 
         foreach (var enemy in _objectPool.CurrentEnemies)
-        {
-            enemy.DiedOnPosition += TakeEffect;
-        }
+            enemy.WasAtedOnPosition += TakeEffect;
     }
 
     private void OnDisable()
@@ -43,23 +39,24 @@ public class EffectCreator : MonoBehaviour
             return;
 
         foreach (var enemy in _objectPool.CurrentEnemies)
-        {
-            enemy.DiedOnPosition -= TakeEffect;
-        }
+            enemy.WasAtedOnPosition -= TakeEffect;
     }
 
     private void OnEnemyWasAdded(Enemy enemy)
     {
-        enemy.DiedOnPosition += TakeEffect;
+        enemy.WasAtedOnPosition += TakeEffect;
     }
 
     private void OnEnemyWasRemoved(Enemy enemy)
     {
-        enemy.DiedOnPosition -= TakeEffect;
+        enemy.WasAtedOnPosition -= TakeEffect;
     }
 
     public void TakeEffect(Vector2 position)
     {
+        if (_effects.Count == 0)
+            CreateEffect();
+
         var effect = _effects.Dequeue();
         effect.gameObject.SetActive(true);
         effect.ShowEffect(position);
@@ -70,5 +67,12 @@ public class EffectCreator : MonoBehaviour
     {
         effect.gameObject.SetActive(false);
         _effects.Enqueue(effect);
+    }
+
+    private void CreateEffect()
+    {
+        var effect = Instantiate(_effectPrefab);
+        _effects.Enqueue(effect);
+        effect.HideEffect();
     }
 }
