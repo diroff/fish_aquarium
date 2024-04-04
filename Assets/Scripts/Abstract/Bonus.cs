@@ -54,7 +54,7 @@ public abstract class Bonus : MonoBehaviour, IInteractable
     public virtual void StopBonus()
     {
         BonusEnded?.Invoke();
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     protected IEnumerator TimeChecker()
