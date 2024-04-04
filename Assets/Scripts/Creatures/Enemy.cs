@@ -4,10 +4,11 @@ public class Enemy : Creature, IInteractable
 {
     private float _movementSpeed;
 
+    protected float _xMovementValue;
+
     protected override void Start()
     {
-        UpdateScale();
-        SetRandomSpeed();
+        PrepareEnemy();
     }
 
     protected override void Update()
@@ -15,16 +16,22 @@ public class Enemy : Creature, IInteractable
         base.Update();
     }
 
+    public virtual void PrepareEnemy()
+    {
+        UpdateScale();
+        SetRandomSpeed();
+    }
+
     private void SetRandomSpeed()
     {
         _movementSpeed = Random.Range(0.1f, 0.49f);
     }
 
-    public void Move(bool isRight)
+    public virtual void Move(bool isRight)
     {
-        SetRandomSpeed();
         _movementSpeed *= isRight ? 1 : -1;
-        InputVector = new Vector2(_movementSpeed, 0);
+        InputVector = new Vector2(_movementSpeed, InputVector.y);
+        _xMovementValue = InputVector.x;
     }
 
     public void Interact(Creature creature)

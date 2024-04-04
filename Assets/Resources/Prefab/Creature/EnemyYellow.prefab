@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1211114554625385886}
   - component: {fileID: 1211114554625385887}
   - component: {fileID: 1211114554625385884}
-  - component: {fileID: 1211114554625385885}
   - component: {fileID: 2538466244989684941}
+  - component: {fileID: 4445840052824031392}
   m_Layer: 0
   m_Name: EnemyYellow
   m_TagString: Untagged
@@ -109,26 +109,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9606594, y: 0.6012104}
   m_EdgeRadius: 0
---- !u!114 &1211114554625385885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211114554625385882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31aaa99a597ce714fb44cdc400475a55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxSpeed: 10
-  Acceleration: 52
-  Decceleration: 52
-  TurnSpeed: 80
-  _spritePlacement: {fileID: 1211114554940379558}
-  _animator: {fileID: 4171290432366329579}
-  _startLevel: 5
-  _spriteSize: 0.64
 --- !u!114 &2538466244989684941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +122,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textField: {fileID: 6176887219287741161}
-  _creature: {fileID: 1211114554625385885}
+  _creature: {fileID: 4445840052824031392}
+--- !u!114 &4445840052824031392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211114554625385882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b515348fa3cc9eb4ea208659f6eb5807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSpeed: 10
+  Acceleration: 52
+  Decceleration: 52
+  TurnSpeed: 80
+  _spritePlacement: {fileID: 1211114554940379558}
+  _animator: {fileID: 4171290432366329579}
+  _startLevel: 1
+  _spriteSize: 0.64
 --- !u!1 &1211114554940379558
 GameObject:
   m_ObjectHideFlags: 0

@@ -83,6 +83,7 @@ public class ObjectPool : MonoBehaviour
         enemyToSpawn.gameObject.SetActive(true);
         enemyToSpawn.transform.position = position;
         enemyToSpawn.transform.rotation = rotation;
+        enemyToSpawn.PrepareEnemy();
         enemyToSpawn.SetEnemyLevel(level);
         enemyToSpawn.Move(isRightSpawner);
 
