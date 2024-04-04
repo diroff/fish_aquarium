@@ -84,25 +84,25 @@ public class Creature : MonoBehaviour
     {
         CurrentLevel += value;
         UpdateExperience();
-        UpdateLevel();
+
+        UpdateScale();
+
+        LevelChanged?.Invoke(CurrentLevel - 1, CurrentLevel);
     }
 
     protected void SetLevel(int value)
     {
         CurrentLevel = value;
         UpdateExperience();
-        UpdateLevel();
+
+        UpdateScale();
+
+        LevelChanged?.Invoke(CurrentLevel - 1, CurrentLevel);
     }
 
     private void UpdateExperience()
     {
         _currentExperience = (CurrentLevel * (CurrentLevel + 1)) / 2;
-
-        if (CurrentLevel == 1)
-            _currentExperience = 0;
-
-        if (CurrentLevel == 2)
-            _currentExperience = 1;
     }
 
     public void UpdateLevel()
@@ -119,8 +119,6 @@ public class Creature : MonoBehaviour
         CurrentLevel = level;
 
         UpdateScale();
-
-        int experienceForCurrentLevel = requiredExperience - level;
 
         LevelChanged?.Invoke(CurrentLevel - 1, CurrentLevel);
     }
