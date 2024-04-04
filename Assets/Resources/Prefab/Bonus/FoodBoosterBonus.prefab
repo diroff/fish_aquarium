@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bonus: {fileID: 8537183205754407288}
-  _bonusIndicatorPrefab: {fileID: 6367804979099316893, guid: 049f1249380cdd141a0dc458ad4be369, type: 3}
-  _uiPlacement: {fileID: 0}
+  _bonusIndicatorPrefab: {fileID: 5814992893801092230, guid: 02d3ce6f479a74b4aa409ffdb25dbaf2, type: 3}
+  _uiStartPlacement: {fileID: 0}
