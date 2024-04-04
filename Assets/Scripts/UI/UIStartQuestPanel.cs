@@ -11,10 +11,15 @@ public class UIStartQuestPanel : MonoBehaviour
     [SerializeField] private LevelTime _levelTime;
     [SerializeField] private Level _level;
 
+    private RectTransform _rectTransform;
+
     private void Start()
     {
         _levelTime.StopTime();
         _pauseButton.SetActive(false);
+        _rectTransform = _questPanel.GetComponent<RectTransform>();
+
+        _rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, (80 * _level.Quests.Count) + 100);
     }
 
     public void StartGame()
@@ -24,8 +29,8 @@ public class UIStartQuestPanel : MonoBehaviour
         _startGameButton.SetActive(false);
         _questPanel.transform.SetParent(_questPanelPlaceholder.transform);
 
-        var rectTransform = _questPanel.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = Vector3.zero;
-        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 120 + (50 * _level.Quests.Count));
+
+        _rectTransform.anchoredPosition = Vector3.zero;
+        _rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, (90 * _level.Quests.Count));
     }
 }
