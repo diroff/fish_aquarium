@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class WaveEnemy : Enemy
 {
+    [SerializeField] private float _minVerticalMovementTime;
+    [SerializeField] private float _maxVerticalMovementTime;
+
+    [SerializeField] private float _minWaveMagnitude;
+    [SerializeField] private float _maxWaveMagnitude;
+
     private float _verticalMovementTime = 1f;
     private float _waveMagnitude = 1f;
 
@@ -23,8 +29,8 @@ public class WaveEnemy : Enemy
 
     private void CalculateWaveMovement()
     {
-        _verticalMovementTime = Random.Range(1f, 2f);
-        _waveMagnitude = Random.Range(0.2f, 0.8f);
+        _verticalMovementTime = Random.Range(_minVerticalMovementTime, _maxVerticalMovementTime);
+        _waveMagnitude = Random.Range(_minWaveMagnitude, _maxWaveMagnitude);
     }
 
     private IEnumerator WaveMoving()
