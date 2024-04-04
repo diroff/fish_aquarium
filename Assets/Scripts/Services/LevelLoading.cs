@@ -21,4 +21,9 @@ public class LevelLoading : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
+
+    public void CloseApplication()
+    {
+        Application.Quit();
+    }
 }
