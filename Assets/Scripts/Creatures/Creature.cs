@@ -40,6 +40,7 @@ public class Creature : MonoBehaviour
     public UnityAction<int, int> LevelChanged;
     public UnityAction<Creature> Died;
     public UnityAction<Vector2> WasAtedOnPosition;
+    public UnityAction<int, int> ExperienceWasChanged;
 
     private int _currentExperience;
 
@@ -109,10 +110,12 @@ public class Creature : MonoBehaviour
     {
         int level = 0;
         int requiredExperience = 0;
+        int experienceForPreviousLevels = 0; // Опыт, необходимый для достижения предыдущего уровня
 
         while (requiredExperience <= _currentExperience)
         {
             level++;
+            experienceForPreviousLevels = requiredExperience;
             requiredExperience += level;
         }
 
@@ -121,6 +124,13 @@ public class Creature : MonoBehaviour
         UpdateScale();
 
         LevelChanged?.Invoke(CurrentLevel - 1, CurrentLevel);
+
+        // Вычисляем текущий опыт за вычетом опыта, необходимого для достижения текущего уровня
+        int currentExperienceForLevel = _currentExperience - experienceForPreviousLevels;
+        // Вычисляем общий опыт, необходимый для следующего уровня за вычетом опыта для текущего уровня
+        int experienceNeededForNextLevel = requiredExperience - experienceForPreviousLevels;
+
+        ExperienceWasChanged?.Invoke(currentExperienceForLevel, experienceNeededForNextLevel);
     }
 
     private void AddExperience(int value)
