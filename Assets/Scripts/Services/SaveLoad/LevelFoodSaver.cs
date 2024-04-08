@@ -16,7 +16,7 @@ public class LevelFoodSaver : MonoBehaviour
         _level.LevelCompleted -= SaveFoodCount;
     }
 
-    private void SaveFoodCount()
+    public void SaveFoodCount()
     {
         _foodStorageLoader.AddMoney(_player.FoodCount);
     }

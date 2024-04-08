@@ -40946,6 +40946,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4d55ed3f458a340a53ba7c80407bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1124835755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1900153051953921220, guid: e36c8384c4acdd94281a96b1a61c9518, type: 3}
+  m_PrefabInstance: {fileID: 6716874707236763873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d60803b6670884e9d8de1b0e3d7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1159878079
 GameObject:
   m_ObjectHideFlags: 0
@@ -61860,6 +61871,10 @@ PrefabInstance:
       propertyPath: _level
       value: 
       objectReference: {fileID: 1977684429}
+    - target: {fileID: 4307438208667467960, guid: c8d08ec4d9894c846920d2698462f978, type: 3}
+      propertyPath: _foodSaver
+      value: 
+      objectReference: {fileID: 1124835755}
     - target: {fileID: 9089804712318077315, guid: c8d08ec4d9894c846920d2698462f978, type: 3}
       propertyPath: m_Name
       value: UILevelOver
