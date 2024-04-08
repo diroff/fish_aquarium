@@ -8,6 +8,7 @@ public class Enemy : Creature, IInteractable
 
     protected override void Start()
     {
+        base.Start();
         PrepareEnemy();
     }
 

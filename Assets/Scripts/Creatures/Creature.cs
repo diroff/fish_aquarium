@@ -27,6 +27,8 @@ public class Creature : MonoBehaviour
     private float _maxSpeedChange;
     private float _baseScale;
 
+    private float _currentMaxSpeed;
+
     private bool _isMoving;
     protected bool NormalSprite = true;
 
@@ -53,13 +55,14 @@ public class Creature : MonoBehaviour
     protected virtual void Start()
     {
         SetLevel(_startLevel);
+        _currentMaxSpeed = MaxSpeed;
     }
 
     protected virtual void Update()
     {
         ApplySpeedLimiter();
 
-        _desiredVelocity = new Vector2(InputVector.x, InputVector.y) * Mathf.Max(MaxSpeed, 0f);
+        _desiredVelocity = new Vector2(InputVector.x, InputVector.y) * Mathf.Max(_currentMaxSpeed, 0f);
         PressingKeyCheck();
     }
 
@@ -110,7 +113,7 @@ public class Creature : MonoBehaviour
     {
         int level = 0;
         int requiredExperience = 0;
-        int experienceForPreviousLevels = 0; // Опыт, необходимый для достижения предыдущего уровня
+        int experienceForPreviousLevels = 0;
 
         while (requiredExperience <= _currentExperience)
         {
@@ -125,9 +128,7 @@ public class Creature : MonoBehaviour
 
         LevelChanged?.Invoke(CurrentLevel - 1, CurrentLevel);
 
-        // Вычисляем текущий опыт за вычетом опыта, необходимого для достижения текущего уровня
         int currentExperienceForLevel = _currentExperience - experienceForPreviousLevels;
-        // Вычисляем общий опыт, необходимый для следующего уровня за вычетом опыта для текущего уровня
         int experienceNeededForNextLevel = requiredExperience - experienceForPreviousLevels;
 
         ExperienceWasChanged?.Invoke(currentExperienceForLevel, experienceNeededForNextLevel);
@@ -221,6 +222,11 @@ public class Creature : MonoBehaviour
             InputVector.x *= _speedLimiter;
             InputVector.y *= _speedLimiter;
         }
+    }
+
+    public void AddMaxSpeed(float value)
+    {
+        _currentMaxSpeed += value;
     }
 
     private bool IsDiagonalMovement()
