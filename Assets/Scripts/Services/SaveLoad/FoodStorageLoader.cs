@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FoodStorageLoader : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class FoodStorageLoader : MonoBehaviour
 
     private IStorageService _storageService;
     private FoodData _food;
+
+    public UnityAction<int, int> FoodCountChanged;
 
     private void Awake()
     {
@@ -25,6 +28,7 @@ public class FoodStorageLoader : MonoBehaviour
         _storageService.Load<FoodData>(Key, data =>
         {
             _food = data;
+            FoodCountChanged?.Invoke(data.FoodCount, data.FoodCount);
         });
     }
 
@@ -38,7 +42,10 @@ public class FoodStorageLoader : MonoBehaviour
     {
         var data = GetData();
 
-        data.AddFood(count);
+        int previousFood = data.FoodCount;
+        data.FoodCount += count;
+
+        FoodCountChanged?.Invoke(previousFood, data.FoodCount);
         _storageService.Save(Key, data);
     }
 
@@ -46,7 +53,13 @@ public class FoodStorageLoader : MonoBehaviour
     {
         var data = GetData();
 
-        data.ReduceFood(count);
+        if (count > data.FoodCount)
+            return;
+
+        int previousFood = data.FoodCount;
+
+        data.FoodCount -= count;
+        FoodCountChanged?.Invoke(previousFood, data.FoodCount);
         _storageService.Save(Key, data);
     }
 
@@ -59,21 +72,5 @@ public class FoodStorageLoader : MonoBehaviour
 
 public class FoodData
 {
-    public int FoodCount { get; private set; }
-
-    public void AddFood(int count)
-    {
-        if (count <= 0)
-            return;
-
-        FoodCount += count;
-    }
-
-    public void ReduceFood(int count)
-    {
-        if (count <= FoodCount)
-            return;
-
-        FoodCount -= count;
-    }
+    public int FoodCount;
 }
