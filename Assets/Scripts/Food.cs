@@ -18,7 +18,7 @@ public class Food : MonoBehaviour, IInteractable
         var player = creature.GetComponent<Player>();
 
         player.AddFood(_count);
-        _creator.ReturnToPool(this);
+        ReturnToPool();
     }
 
     public void SetFoodCreator(FoodCreator creator)
@@ -29,11 +29,10 @@ public class Food : MonoBehaviour, IInteractable
     public void SetCount(int count)
     {
         _count = count;
-        ResizeScale();
     }
 
-    private void ResizeScale()
+    public void ReturnToPool()
     {
-        transform.localScale = Vector2.one * (_sizeModificator * _count);
+        _creator.ReturnToPool(this);
     }
 }
