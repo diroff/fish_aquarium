@@ -6,7 +6,6 @@ public class FoodCreator : MonoBehaviour
 {
     [Header("Food level settings")]
     [SerializeField] private int _foodMaxValueOnLevel;
-    [SerializeField] private int _foodCountOnLevel;
     [SerializeField] private float _spawnDelay = 2f;
 
     [Header("Food settings")]
@@ -17,10 +16,12 @@ public class FoodCreator : MonoBehaviour
     [SerializeField] private Vector2 _minSpawnRange;
     [SerializeField] private Vector2 _maxSpawnRange;
 
+    [Space]
+    [SerializeField] private Player _player;
+
     private Queue<Food> _food = new Queue<Food>();
 
     private int _foodValueRemaining;
-    private int _foodCountRemaining;
 
     private void Awake()
     {
@@ -28,7 +29,16 @@ public class FoodCreator : MonoBehaviour
             CreateFood();
 
         _foodValueRemaining = _foodMaxValueOnLevel;
-        _foodCountRemaining = _foodCountOnLevel;
+    }
+
+    private void OnEnable()
+    {
+        _player.FoodCountChanged += OnPlayerAteFood;
+    }
+
+    private void OnDisable()
+    {
+        _player.FoodCountChanged -= OnPlayerAteFood;
     }
 
     private void Start()
@@ -70,26 +80,43 @@ public class FoodCreator : MonoBehaviour
     {
         int food = 0;
 
-        if(_foodCountRemaining <= _foodCountOnLevel / 2)
+        if (_foodValueRemaining <= _foodMaxValueOnLevel / 2)
             food = Random.Range(_foodValueRemaining / 2, _foodValueRemaining);
-        else
-            food = Random.Range(_foodValueRemaining/8, _foodValueRemaining / 4);
-
-        if (_foodCountRemaining == 1)
+        else if (_foodValueRemaining <= _foodMaxValueOnLevel / 4)
             food = _foodValueRemaining;
+        else
+            food = Random.Range(_foodValueRemaining / 6, _foodValueRemaining / 3);
 
-        _foodValueRemaining -= food;
-        _foodCountRemaining--;
+        if (_foodValueRemaining == 1)
+            food = _foodValueRemaining;
 
         return food;
     }
 
+    private void OnPlayerAteFood(int previousValue, int currentValue)
+    {
+        int foodAted = currentValue - previousValue;
+
+        _foodValueRemaining -= foodAted;
+        Debug.Log("food remaining:" + _foodValueRemaining);
+    }
+
     private IEnumerator CreateFoodWithDelay()
     {
-        while(_foodCountRemaining > 0)
+        while(_foodValueRemaining > 0)
         {
             yield return new WaitForSeconds(_spawnDelay);
-            Spawn();
+
+            if(_foodValueRemaining > 0)
+                Spawn();
+        }
+    }
+
+    private void DisableAllFood()
+    {
+        foreach (var item in _food)
+        {
+            item.ReturnToPool();
         }
     }
 }

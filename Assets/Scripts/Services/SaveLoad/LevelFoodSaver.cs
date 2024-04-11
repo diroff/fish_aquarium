@@ -6,6 +6,8 @@ public class LevelFoodSaver : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private FoodStorageLoader _foodStorageLoader;
 
+    public Player Player => _player;
+
     private void OnEnable()
     {
         _level.LevelCompleted += SaveFoodCount;
