@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681bd2ad9833b5449adf5b6e3347c97, type: 3}
+  m_Name: DestroyBonus
+  m_EditorClassIdentifier: 
+  _bonusTime: 0.01
+  _timeBeforeDestroying: 5
+  _bonusIcon: {fileID: -618255053, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}

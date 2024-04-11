@@ -142,6 +142,17 @@ public class Creature : MonoBehaviour
         UpdateLevel();
     }
 
+    public void EatOtherCreature(Creature winingCreature, Creature losingCreature)
+    {
+        int previousLevel = winingCreature.CurrentLevel;
+
+        winingCreature.AddExperience(losingCreature.Level);
+        winingCreature.FishAted?.Invoke();
+
+        losingCreature.WasAtedOnPosition?.Invoke(transform.position);
+        losingCreature.Die();
+    }
+
     public void TryToEatOtherCreature(Creature creature)
     {
         Creature winingCreature = Level > creature.Level ? this : creature;
@@ -150,13 +161,7 @@ public class Creature : MonoBehaviour
         if (winingCreature.IsImmortal || losingCreature.IsImmortal)
             return;
 
-        int previousLevel = winingCreature.CurrentLevel;
-
-        winingCreature.AddExperience(losingCreature.Level);
-        winingCreature.FishAted?.Invoke();
-
-        losingCreature.WasAtedOnPosition?.Invoke(transform.position);
-        losingCreature.Die();
+        EatOtherCreature(winingCreature, losingCreature);
     }
 
     protected virtual void EnableImmortality()
