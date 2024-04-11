@@ -3,6 +3,8 @@ using UnityEngine;
 public class BonusSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _uiPanel;
+    [SerializeField] private ObjectPool _objectPool;
+    [SerializeField] private LevelEnemies _levelEnemies;
 
     [SerializeField] private Vector2 _minPosition;
     [SerializeField] private Vector2 _maxPosition;
@@ -11,6 +13,13 @@ public class BonusSpawner : MonoBehaviour
     {
         var bonus = Instantiate(bonusSetting.BonusPrefab, CalculatePosition(), Quaternion.identity);
         bonus.BonusData.SetTime(bonusSetting.BonusTime);
+
+        if (bonus is IBonusDependencies bonusWithDependencies)
+        {
+            bonusWithDependencies.SetObjectPool(_objectPool);
+            bonusWithDependencies.SetLevelEnemies(_levelEnemies);
+        }
+
         var creator = bonus.GetComponent<UIBonusCreator>();
         creator.SetPlacement(_uiPanel);
     }

@@ -50722,6 +50722,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiPanel: {fileID: 1781770552}
+  _objectPool: {fileID: 422778742}
+  _levelEnemies: {fileID: 7861857750401650661}
   _minPosition: {x: -10, y: 6.5}
   _maxPosition: {x: 10, y: -6.5}
 --- !u!4 &1429179851
@@ -63217,6 +63219,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
+--- !u!114 &7861857750401650661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
+  m_PrefabInstance: {fileID: 7861857750401650660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb80ce6c27e988543b46f1d422e5d75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7928731788019157262 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6828340691788896886, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}

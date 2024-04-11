@@ -23,6 +23,7 @@ public class Player : Creature
     protected override void Start()
     {
         base.Start();
+        SetLevel(StartLevel);
         LevelChanged?.Invoke(0, CurrentLevel);
     }
 

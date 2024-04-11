@@ -22,6 +22,7 @@ public class Creature : MonoBehaviour
     private Vector2 _velocity;
 
     protected int CurrentLevel;
+    protected int StartLevel => _startLevel;
 
     private float _speedLimiter = 0.7f;
     private float _maxSpeedChange;
@@ -33,6 +34,8 @@ public class Creature : MonoBehaviour
     protected bool NormalSprite = true;
 
     protected bool IsImmortal = false;
+
+    private bool _isFrozen = false;
 
     protected Rigidbody2D Rigidbody;
 
@@ -54,7 +57,6 @@ public class Creature : MonoBehaviour
 
     protected virtual void Start()
     {
-        SetLevel(_startLevel);
         _currentMaxSpeed = MaxSpeed;
     }
 
@@ -190,6 +192,9 @@ public class Creature : MonoBehaviour
 
     private void Move()
     {
+        if (_isFrozen)
+            return;
+
         if (_isMoving)
         {
             if (Mathf.Sign(InputVector.x) != Mathf.Sign(_velocity.x) || Mathf.Sign(InputVector.y) != Mathf.Sign(_velocity.y))
@@ -205,6 +210,24 @@ public class Creature : MonoBehaviour
 
         Rigidbody.velocity = _velocity;
         ChangeSpriteDirection();
+    }
+
+    public void FreezeMoving()
+    {
+        _isFrozen = true;
+        StopMove();
+    }
+
+    public void UnfreezeMoving()
+    {
+        _isFrozen = false;
+    }
+
+    private void StopMove()
+    {
+        Rigidbody.velocity = Vector2.zero;
+        _desiredVelocity = Vector2.zero;
+        _animator.SetBool("Moving", false);
     }
 
     private void PressingKeyCheck()

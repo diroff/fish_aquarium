@@ -17,6 +17,8 @@ public class LevelEnemies : MonoBehaviour
     [Space]
     [SerializeField] private LevelSpawners _levelSpawners;
 
+    private bool _isFreezing = false;
+
     private List<EnemySetting> _currentEnemies = new List<EnemySetting>();
 
     private int _currentEnemyIndex;
@@ -30,6 +32,9 @@ public class LevelEnemies : MonoBehaviour
 
     private IEnumerator Spawn()
     {
+        while (_isFreezing)
+            yield return null;
+
         for (int i = 0; i < _levelSpawners.Spawners.Count; i++)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(_syncSpawnMinDelay, _syncSpawnMaxDelay));
@@ -38,6 +43,16 @@ public class LevelEnemies : MonoBehaviour
 
         yield return new WaitForSeconds(_spawnDelay);
         StartCoroutine(Spawn());
+    }
+
+    public void FreezeSpawn()
+    {
+        _isFreezing = true;
+    }
+
+    public void UnFreezeSpawn()
+    {
+        _isFreezing = false;
     }
 
     private void SpawnEnemy()

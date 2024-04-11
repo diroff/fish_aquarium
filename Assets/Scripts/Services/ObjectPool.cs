@@ -74,7 +74,6 @@ public class ObjectPool : MonoBehaviour
         if (_poolDictionary[prefab].Count == 0)
         {
             enemyToSpawn = Instantiate(prefab);
-            Debug.Log("Недостаточно объектов! Создаем еще");
             _instanceToPrefabMap[enemyToSpawn] = prefab;
         }
         else

@@ -40319,6 +40319,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &345515512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3125666585671522828, guid: e51d9fa63619b044a8677911bb0a0405, type: 3}
+  m_PrefabInstance: {fileID: 7861857750401650660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb80ce6c27e988543b46f1d422e5d75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357103361
 GameObject:
   m_ObjectHideFlags: 0
@@ -50536,6 +50547,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiPanel: {fileID: 1781770552}
+  _objectPool: {fileID: 422778742}
+  _levelEnemies: {fileID: 345515512}
   _minPosition: {x: -10, y: 6.5}
   _maxPosition: {x: 10, y: -6.5}
 --- !u!4 &1429179851
