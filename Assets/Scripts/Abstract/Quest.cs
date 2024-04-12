@@ -13,7 +13,6 @@ public abstract class Quest : MonoBehaviour
 
     public virtual void CompleteQuest()
     {
-        Debug.Log("Quest finished!");
         IsQuestFinished = true;
         QuestCompleted?.Invoke();
     }
