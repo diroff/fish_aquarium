@@ -1,10 +1,18 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : Creature, IInteractable
 {
+    [Header("Enemy settings")]
+    [SerializeField] private int _creatureID;
+
     private float _movementSpeed;
 
     protected float _xMovementValue;
+
+    public int CreatureID => _creatureID;
+
+    public UnityAction WasDestroyed;
 
     protected override void Start()
     {

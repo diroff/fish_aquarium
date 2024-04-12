@@ -129,6 +129,7 @@ MonoBehaviour:
   _animator: {fileID: 7985610091160394221}
   _startLevel: 1
   _spriteSize: 0.64
+  _creatureID: 1
 --- !u!114 &8618021355072155374
 MonoBehaviour:
   m_ObjectHideFlags: 0

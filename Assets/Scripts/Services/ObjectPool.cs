@@ -12,6 +12,7 @@ public class ObjectPool : MonoBehaviour
     private List<Enemy> _currentEnimies = new List<Enemy>();
 
     public List<Enemy> CurrentEnemies => _currentEnimies;
+    public Dictionary<Enemy, Queue<Enemy>> PoolDictionary => _poolDictionary;
 
     public UnityAction<Enemy> EnemyWasAdded;
     public UnityAction<Enemy> EnemyWasRemoved;

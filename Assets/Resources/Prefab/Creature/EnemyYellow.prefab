@@ -143,6 +143,7 @@ MonoBehaviour:
   _animator: {fileID: 4171290432366329579}
   _startLevel: 1
   _spriteSize: 0.64
+  _creatureID: 2
   _minVerticalMovementTime: 2
   _maxVerticalMovementTime: 3
   _minWaveMagnitude: 0.2
