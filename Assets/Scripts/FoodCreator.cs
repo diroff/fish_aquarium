@@ -98,7 +98,9 @@ public class FoodCreator : MonoBehaviour
         int foodAted = currentValue - previousValue;
 
         _foodValueRemaining -= foodAted;
-        Debug.Log("food remaining:" + _foodValueRemaining);
+
+        if (_foodValueRemaining <= 0)
+            DisableAllFood();
     }
 
     private IEnumerator CreateFoodWithDelay()
