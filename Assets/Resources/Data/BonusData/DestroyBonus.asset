@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a681bd2ad9833b5449adf5b6e3347c97, type: 3}
   m_Name: DestroyBonus
   m_EditorClassIdentifier: 
-  _bonusTime: 0.01
-  _timeBeforeDestroying: 5
   _bonusIcon: {fileID: -618255053, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}
+  _timeBeforeDestroying: 5
+  _baseBonusTime: 0.001
+  _baseCost: 1
+  _costForLevel: 1
+  _bonusTimeForLevel: 1
