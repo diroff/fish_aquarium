@@ -1255,11 +1255,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
   - _bonusPrefab: {fileID: 5470198261243906183, guid: e9d8d836d7ecf504da8284ed9ba4b92c, type: 3}
-    _bonusTime: 7
     _timeBeforeSpawn: 5
     _timeBeforeDestroyBonus: 10
   - _bonusPrefab: {fileID: 7303032508110835931, guid: 6ba78171ab0ae5c4cb9cab04b72f6611, type: 3}
-    _bonusTime: 7
     _timeBeforeSpawn: 3
     _timeBeforeDestroyBonus: 10
   _spawner: {fileID: 1429179850}
@@ -1797,6 +1795,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd7c653e5154c1459e24a11a032ab20, type: 3}
+--- !u!1 &1714760520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1714760522}
+  - component: {fileID: 1714760521}
+  m_Layer: 0
+  m_Name: BonusProgression
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1714760521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714760520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13afaa46ac1c9b742a3a45d5194b5fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1714760522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714760520}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722275668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3795,3 +3837,4 @@ SceneRoots:
   - {fileID: 1429179851}
   - {fileID: 1820785277}
   - {fileID: 260889447}
+  - {fileID: 1714760522}
