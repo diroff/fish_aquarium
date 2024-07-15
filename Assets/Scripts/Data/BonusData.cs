@@ -21,7 +21,7 @@ public class BonusData : ScriptableObject
     public float CostForLevel => _costForLevel;
     public float BonusTimeForLevel => _bonusTimeForLevel;
 
-    private int _level;
+    private int _level = 1;
 
     public void AddLevel()
     {
