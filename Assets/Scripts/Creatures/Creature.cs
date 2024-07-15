@@ -21,6 +21,8 @@ public class Creature : MonoBehaviour
     private Vector2 _desiredVelocity;
     private Vector2 _velocity;
 
+    private int _currentExperience;
+
     protected int CurrentLevel;
     protected int StartLevel => _startLevel;
 
@@ -40,14 +42,13 @@ public class Creature : MonoBehaviour
     protected Rigidbody2D Rigidbody;
 
     public int Level => CurrentLevel;
+    public GameObject SpritePlacement => _spritePlacement;
 
     public UnityAction FishAted;
     public UnityAction<int, int> LevelChanged;
     public UnityAction<Creature> Died;
     public UnityAction<Vector2> WasAtedOnPosition;
     public UnityAction<int, int> ExperienceWasChanged;
-
-    private int _currentExperience;
 
     protected virtual void Awake()
     {
