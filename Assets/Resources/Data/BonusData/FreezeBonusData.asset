@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a681bd2ad9833b5449adf5b6e3347c97, type: 3}
   m_Name: FreezeBonusData
   m_EditorClassIdentifier: 
-  _id: 4
-  _bonusName: Freeze Bomb
+  _bonusInfo:
+    _id: 4
+    _bonusName: Freeze Bomb
+    _baseBonusTime: 5
+    _baseCost: 50
+    _costForLevel: 75
+    _bonusTimeForLevel: 1
+    _timeBeforeDestroying: 5
   _bonusIcon: {fileID: -618255053, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}
-  _timeBeforeDestroying: 5
-  _baseBonusTime: 5
-  _baseCost: 10
-  _costForLevel: 35
-  _bonusTimeForLevel: 1

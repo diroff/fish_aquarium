@@ -34,7 +34,7 @@ public class LevelBonuses : MonoBehaviour
         yield return new WaitForSeconds(_currentBonus.TimeBeforeSpawn + _lastBonusTime);
         Spawn(_bonuses[0]);
 
-        _lastBonusTime = _bonuses[0].BonusPrefab.BonusData.TotalBonusTime();
+        _lastBonusTime = _bonuses[0].BonusPrefab.BonusData.BonusInfo.TotalBonusTime();
         _bonuses.RemoveAt(0);
         StartCoroutine(Spawn());
     }

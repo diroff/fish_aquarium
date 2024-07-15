@@ -19,10 +19,10 @@ public class BonusProgressionLoading : MonoBehaviour
         {
             foreach (var bonusDataProgression in allBonusDataProgression.Datas)
             {
-                if(bonusData.ID == bonusDataProgression.ID)
+                if(bonusData.BonusInfo.ID == bonusDataProgression.ID)
                 {
-                    bonusData.SetLevel(bonusDataProgression.Level);
-                    Debug.Log($"Bonus with id {bonusData.ID} now has level {bonusDataProgression.Level}");
+                    bonusData.BonusInfo.SetLevel(bonusDataProgression.Level);
+                    Debug.Log($"Bonus with id {bonusData.BonusInfo.ID} now has level {bonusDataProgression.Level}");
                     break;
                 }
             }

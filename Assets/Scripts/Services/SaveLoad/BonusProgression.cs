@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +37,7 @@ public class BonusProgression : MonoBehaviour
         var allBonusData = Resources.LoadAll<BonusData>("Data/BonusData");
         
         foreach (var item in allBonusData)
-            data.Datas.Add(new BonusProgressionData(item.ID, item.BonusName, item.Level));
+            data.Datas.Add(item.BonusInfo);
 
         _storageService.Save(Key, data);
     }
@@ -50,19 +51,5 @@ public class BonusProgression : MonoBehaviour
 
 public class BonusDatas
 {
-    public List<BonusProgressionData> Datas = new List<BonusProgressionData>();
-}
-
-public class BonusProgressionData
-{
-    public int ID;
-    public string Name;
-    public int Level;
-
-    public BonusProgressionData(int id, string name, int level)
-    {
-        ID = id;
-        Name = name;
-        Level = level;
-    }
+    public List<BonusInfo> Datas = new List<BonusInfo>();
 }

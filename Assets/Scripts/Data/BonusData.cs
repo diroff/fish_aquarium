@@ -1,12 +1,23 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New BonusData", order = 51)]
 public class BonusData : ScriptableObject
 {
+    [SerializeField] private BonusInfo _bonusInfo;
+
+    [SerializeField] private Sprite _bonusIcon;
+
+    public BonusInfo BonusInfo => _bonusInfo;
+
+    public Sprite BonusIcon => _bonusIcon;
+}
+
+[Serializable]
+public class BonusInfo
+{
     [SerializeField] private int _id;
     [SerializeField] private string _bonusName;
-    [SerializeField] private Sprite _bonusIcon;
-    [SerializeField] private float _timeBeforeDestroying = 5f;
 
     [SerializeField] private float _baseBonusTime;
     [SerializeField] private float _baseCost;
@@ -14,20 +25,22 @@ public class BonusData : ScriptableObject
     [SerializeField] private float _costForLevel;
     [SerializeField] private float _bonusTimeForLevel;
 
+    [SerializeField] private float _timeBeforeDestroying = 5f;
+
     private int _level = 1;
 
     public int ID => _id;
-    public Sprite BonusIcon => _bonusIcon;
     public string BonusName => _bonusName;
-    public float TimeBeforeDestroying => _timeBeforeDestroying;
 
     public float BaseBonusTime => _baseBonusTime;
     public float BaseCostTime => _baseCost;
 
     public float CostForLevel => _costForLevel;
     public float BonusTimeForLevel => _bonusTimeForLevel;
-    
+
     public int Level => _level;
+
+    public float TimeBeforeDestroying => _timeBeforeDestroying;
 
     public void SetLevel(int level)
     {
