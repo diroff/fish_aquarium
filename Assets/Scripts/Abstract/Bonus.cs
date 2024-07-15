@@ -46,7 +46,7 @@ public abstract class Bonus : MonoBehaviour, IInteractable
 
     public virtual void UseBonus()
     {
-        CurrentTime = _bonusData.BonusTime;
+        CurrentTime = _bonusData.TotalBonusTime();
         BonusStarted?.Invoke();
         StartCoroutine(TimeChecker());
     }
@@ -62,7 +62,7 @@ public abstract class Bonus : MonoBehaviour, IInteractable
         while (CurrentTime > 0)
         {
             CurrentTime -= Time.deltaTime;
-            BonusTimeChanged?.Invoke(CurrentTime, _bonusData.BonusTime);
+            BonusTimeChanged?.Invoke(CurrentTime, _bonusData.TotalBonusTime());
             yield return null;
         }
 

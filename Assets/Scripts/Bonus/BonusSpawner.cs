@@ -12,7 +12,6 @@ public class BonusSpawner : MonoBehaviour
     public void CreateBonus(BonusSetting bonusSetting)
     {
         var bonus = Instantiate(bonusSetting.BonusPrefab, CalculatePosition(), Quaternion.identity);
-        bonus.BonusData.SetTime(bonusSetting.BonusTime);
 
         if (bonus is IBonusDependencies bonusWithDependencies)
         {

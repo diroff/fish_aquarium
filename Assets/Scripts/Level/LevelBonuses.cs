@@ -34,7 +34,7 @@ public class LevelBonuses : MonoBehaviour
         yield return new WaitForSeconds(_currentBonus.TimeBeforeSpawn + _lastBonusTime);
         Spawn(_bonuses[0]);
 
-        _lastBonusTime = _bonuses[0].BonusPrefab.BonusData.BonusTime;
+        _lastBonusTime = _bonuses[0].BonusPrefab.BonusData.TotalBonusTime();
         _bonuses.RemoveAt(0);
         StartCoroutine(Spawn());
     }
@@ -52,12 +52,12 @@ public class LevelBonuses : MonoBehaviour
 public class BonusSetting
 {
     [SerializeField] private Bonus _bonusPrefab;
-    [SerializeField] private float _bonusTime;
+
     [SerializeField] private float _timeBeforeSpawn;
     [SerializeField] private float _timeBeforeDestroyBonus; 
 
     public Bonus BonusPrefab => _bonusPrefab;
+
     public float TimeBeforeSpawn => _timeBeforeSpawn; 
-    public float BonusTime => _bonusTime; 
     public float TimeBeforeDestroyBonus => _timeBeforeDestroyBonus;
 }
