@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ShieldBonusData
   m_EditorClassIdentifier: 
   _bonusInfo:
-    _id: 0
-    _bonusName: Shield
-    _level: 1
-    _baseBonusTime: 3
-    _baseCost: 15
-    _costForLevel: 55
-    _bonusTimeForLevel: 1
-    _timeBeforeDestroying: 5
+    <ID>k__BackingField: 0
+    <BonusName>k__BackingField: Shield
+    <BaseBonusTime>k__BackingField: 3
+    <BaseCost>k__BackingField: 15
+    <CostForLevel>k__BackingField: 55
+    <BonusTimeForLevel>k__BackingField: 1
+    <Level>k__BackingField: 1
+    <TimeBeforeDestroying>k__BackingField: 5
   _bonusIcon: {fileID: -193432122, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}

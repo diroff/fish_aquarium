@@ -20,18 +20,9 @@ public class BonusProgression : MonoBehaviour
         _storageService.Load<BonusDatas>(Key, data =>
         {
             if (data == null)
-            {
                 FirstSave();
-            }
             else
-            {
                 _data = data;
-                Debug.Log("Data loaded:");
-                foreach (var item in _data.Datas)
-                {
-                    Debug.Log($"{item.ID} id; {item.BonusName} name; {item.Level} level");
-                }
-            }
         });
     }
 
@@ -54,23 +45,47 @@ public class BonusProgression : MonoBehaviour
         _storageService.Save(Key, data, success =>
         {
             if (success)
-            {
                 Debug.Log("Data saved successfully!");
-                ShowSaveDatas(data);
-            }
             else
-            {
                 Debug.LogError("Failed to save data.");
-            }
         });
     }
 
-    public void ShowSaveDatas(BonusDatas data)
+    public BonusInfo GetDataByID(int id)
     {
+        BonusInfo info = new BonusInfo();
+
+        var data = GetData();
+
         foreach (var item in data.Datas)
         {
-            Debug.Log($"{item.ID} id; {item.BonusName} name; {item.Level} level");
+            if (item.ID == id)
+            {
+                info = item;
+                break;
+            }
         }
+
+        return info;
+    }
+
+    public void SaveChangesOnBonusInfo(int id)
+    {
+        var field = GetDataByID(id);
+
+        var data = GetData();
+
+        foreach (var item in data.Datas)
+        {
+            if (item.ID == field.ID)
+            {
+                item.SetLevel(field.Level);
+                break;
+            }
+        }
+
+        SaveData(data);
+
     }
 
     [ContextMenu("What loaded?")]

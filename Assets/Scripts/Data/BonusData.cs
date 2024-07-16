@@ -1,5 +1,5 @@
-using Newtonsoft.Json;
 using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New BonusData", order = 51)]
@@ -17,54 +17,42 @@ public class BonusData : ScriptableObject
 [Serializable]
 public struct BonusInfo
 {
-    [JsonProperty("_id")]
-    [SerializeField] private int _id;
+    [JsonProperty("id")]
+    [field: SerializeField] public int ID { get; private set; }
+    [JsonProperty("bonusName")]
+    [field: SerializeField] public string BonusName { get; private set; }
 
-    [JsonProperty("_bonusName")]
-    [SerializeField] private string _bonusName;
+    [JsonProperty("baseBonusTime")]
+    [field: SerializeField] public float BaseBonusTime { get; private set; }
+    [JsonProperty("baseCost")]
+    [field: SerializeField] public float BaseCost { get; private set; }
 
-    [JsonProperty("_level")]
-    [SerializeField] private int _level;
+    [JsonProperty("costForLevel")]
+    [field: SerializeField] public float CostForLevel { get; private set; }
+    [JsonProperty("bonusTimeForLevel")]
+    [field: SerializeField] public float BonusTimeForLevel { get; private set; }
 
-    [JsonProperty("_baseBonusTime")]
-    [SerializeField] private float _baseBonusTime;
+    [JsonProperty("level")]
+    [field: SerializeField] public int Level { get; private set; }
 
-    [JsonProperty("_baseCost")]
-    [SerializeField] private float _baseCost;
-
-    [JsonProperty("_costForLevel")]
-    [SerializeField] private float _costForLevel;
-
-    [JsonProperty("_bonusTimeForLevel")]
-    [SerializeField] private float _bonusTimeForLevel;
-
-    [JsonProperty("_timeBeforeDestroying")]
-    [SerializeField] private float _timeBeforeDestroying;
-
-    public int ID => _id;
-    public string BonusName => _bonusName;
-    public int Level => _level;
-    public float BaseBonusTime => _baseBonusTime;
-    public float BaseCostTime => _baseCost;
-    public float CostForLevel => _costForLevel;
-    public float BonusTimeForLevel => _bonusTimeForLevel;
-    public float TimeBeforeDestroying => _timeBeforeDestroying;
+    [JsonProperty("timeBeforeDestroying")]
+    [field: SerializeField] public float TimeBeforeDestroying { get; private set; }
 
     public void SetLevel(int level)
     {
         if (level <= 0)
             level = 1;
 
-        _level = level;
+        Level = level;
     }
 
     public float TotalBonusTime()
     {
-        return (_baseBonusTime + _bonusTimeForLevel) * _level;
+        return (BaseBonusTime + BonusTimeForLevel) * Level;
     }
 
     public float TotalBonusCost()
     {
-        return (_baseCost + _costForLevel) * Mathf.Pow(_level, 2);
+        return (BaseCost + CostForLevel) * Mathf.Pow(Level, 2);
     }
 }

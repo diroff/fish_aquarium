@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: FreezeBonusData
   m_EditorClassIdentifier: 
   _bonusInfo:
-    _id: 4
-    _bonusName: Freeze Bomb
-    _level: 1
-    _baseBonusTime: 5
-    _baseCost: 50
-    _costForLevel: 75
-    _bonusTimeForLevel: 1
-    _timeBeforeDestroying: 5
+    <ID>k__BackingField: 4
+    <BonusName>k__BackingField: Freeze Bomb
+    <BaseBonusTime>k__BackingField: 5
+    <BaseCost>k__BackingField: 50
+    <CostForLevel>k__BackingField: 75
+    <BonusTimeForLevel>k__BackingField: 1
+    <Level>k__BackingField: 1
+    <TimeBeforeDestroying>k__BackingField: 5
   _bonusIcon: {fileID: -618255053, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}
