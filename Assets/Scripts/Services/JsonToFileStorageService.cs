@@ -8,7 +8,7 @@ public class JsonToFileStorageService : IStorageService
     public void Save(string key, object data, Action<bool> callback)
     {
         string path = BuildPath(key);
-        string json = JsonConvert.SerializeObject(data);
+        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
         using (var fileStream = new StreamWriter(path))
         {

@@ -15,6 +15,7 @@ MonoBehaviour:
   _bonusInfo:
     _id: 5
     _bonusName: Bomb
+    _level: 1
     _baseBonusTime: 0.001
     _baseCost: 1
     _costForLevel: 1

@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using UnityEngine;
 
@@ -14,32 +15,39 @@ public class BonusData : ScriptableObject
 }
 
 [Serializable]
-public class BonusInfo
+public struct BonusInfo
 {
+    [JsonProperty("_id")]
     [SerializeField] private int _id;
+
+    [JsonProperty("_bonusName")]
     [SerializeField] private string _bonusName;
 
+    [JsonProperty("_level")]
+    [SerializeField] private int _level;
+
+    [JsonProperty("_baseBonusTime")]
     [SerializeField] private float _baseBonusTime;
+
+    [JsonProperty("_baseCost")]
     [SerializeField] private float _baseCost;
 
+    [JsonProperty("_costForLevel")]
     [SerializeField] private float _costForLevel;
+
+    [JsonProperty("_bonusTimeForLevel")]
     [SerializeField] private float _bonusTimeForLevel;
 
-    [SerializeField] private float _timeBeforeDestroying = 5f;
-
-    private int _level = 1;
+    [JsonProperty("_timeBeforeDestroying")]
+    [SerializeField] private float _timeBeforeDestroying;
 
     public int ID => _id;
     public string BonusName => _bonusName;
-
+    public int Level => _level;
     public float BaseBonusTime => _baseBonusTime;
     public float BaseCostTime => _baseCost;
-
     public float CostForLevel => _costForLevel;
     public float BonusTimeForLevel => _bonusTimeForLevel;
-
-    public int Level => _level;
-
     public float TimeBeforeDestroying => _timeBeforeDestroying;
 
     public void SetLevel(int level)

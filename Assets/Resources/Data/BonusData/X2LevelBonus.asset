@@ -15,6 +15,7 @@ MonoBehaviour:
   _bonusInfo:
     _id: 1
     _bonusName: X Value Level
+    _level: 1
     _baseBonusTime: 3
     _baseCost: 20
     _costForLevel: 65

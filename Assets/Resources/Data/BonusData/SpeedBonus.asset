@@ -15,6 +15,7 @@ MonoBehaviour:
   _bonusInfo:
     _id: 3
     _bonusName: Speed
+    _level: 1
     _baseBonusTime: 3
     _baseCost: 10
     _costForLevel: 35

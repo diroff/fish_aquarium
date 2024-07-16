@@ -15,6 +15,7 @@ MonoBehaviour:
   _bonusInfo:
     _id: 0
     _bonusName: Shield
+    _level: 1
     _baseBonusTime: 3
     _baseCost: 15
     _costForLevel: 55
