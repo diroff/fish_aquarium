@@ -1141,7 +1141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1248303069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1488,6 +1488,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503442090}
   m_CullTransparentMesh: 1
+--- !u!1 &1589596100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589596102}
+  - component: {fileID: 1589596101}
+  m_Layer: 0
+  m_Name: BonusProgression
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1589596101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589596100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13afaa46ac1c9b742a3a45d5194b5fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1589596102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589596100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758208080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,10 +1699,10 @@ RectTransform:
   - {fileID: 271140061}
   m_Father: {fileID: 1837345849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 145, y: -350}
-  m_SizeDelta: {x: 192, y: 192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783506573
 MonoBehaviour:
@@ -1788,10 +1832,10 @@ RectTransform:
   - {fileID: 86337726}
   m_Father: {fileID: 1837345849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 367, y: -128}
-  m_SizeDelta: {x: 192, y: 192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817630709
 MonoBehaviour:
@@ -1899,6 +1943,7 @@ GameObject:
   - component: {fileID: 1837345852}
   - component: {fileID: 1837345851}
   - component: {fileID: 1837345850}
+  - component: {fileID: 1837345853}
   m_Layer: 5
   m_Name: ShopPanelBackground
   m_TagString: Untagged
@@ -1990,6 +2035,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837345848}
   m_CullTransparentMesh: 1
+--- !u!114 &1837345853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837345848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9042d375202dfd24b9dc25db86b4dd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonusProgression: {fileID: 1589596101}
 --- !u!1 &2017907379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,10 +2284,10 @@ RectTransform:
   - {fileID: 950457273}
   m_Father: {fileID: 1837345849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 145, y: -128}
-  m_SizeDelta: {x: 192, y: 192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2109195542
 MonoBehaviour:
@@ -2275,13 +2333,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 768513950}
-        m_TargetAssemblyTypeName: FoodStorageLoader, Assembly-CSharp
-        m_MethodName: AddMoney
-        m_Mode: 3
+      - m_Target: {fileID: 1837345853}
+        m_TargetAssemblyTypeName: BonusUprader, Assembly-CSharp
+        m_MethodName: UpgradeBonus
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: e80efd2ac5c8eff4ca843dd25ad94732, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BonusData, Assembly-CSharp
           m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2335,3 +2393,4 @@ SceneRoots:
   - {fileID: 772498764}
   - {fileID: 768513948}
   - {fileID: 2017907382}
+  - {fileID: 1589596102}
