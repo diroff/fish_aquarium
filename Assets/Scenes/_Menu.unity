@@ -1194,6 +1194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileSpawnPoint: {fileID: 1837345849}
   _shopItemPrefab: {fileID: 3411659017027857541, guid: e0421fedd08a5ec4a8d0f1cbb3edad25, type: 3}
+  _bonusUpgrader: {fileID: 1837345853}
   _shop: {fileID: 1248303072}
 --- !u!114 &1248303072
 MonoBehaviour:
@@ -2063,12 +2064,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 768513950}
         m_TargetAssemblyTypeName: FoodStorageLoader, Assembly-CSharp
-        m_MethodName: ReduceMoney
+        m_MethodName: AddMoney
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 55
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2227,6 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9042d375202dfd24b9dc25db86b4dd40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _foodStorage: {fileID: 768513950}
   _bonusProgression: {fileID: 1589596101}
 --- !u!1 &1888843665
 GameObject:
@@ -2797,19 +2799,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2109195543}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1837345853}
-        m_TargetAssemblyTypeName: BonusUprader, Assembly-CSharp
-        m_MethodName: UpgradeBonus
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e80efd2ac5c8eff4ca843dd25ad94732, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BonusData, Assembly-CSharp
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2109195543
 MonoBehaviour:
   m_ObjectHideFlags: 0

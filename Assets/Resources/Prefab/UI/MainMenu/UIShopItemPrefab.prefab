@@ -273,6 +273,7 @@ MonoBehaviour:
   _name: {fileID: 3901868101871980062}
   _icon: {fileID: 5158374793425131507}
   _cost: {fileID: 8412925412917428307}
+  _upgradeButton: {fileID: 2307066922081140021}
 --- !u!1 &2951526564591322124
 GameObject:
   m_ObjectHideFlags: 0

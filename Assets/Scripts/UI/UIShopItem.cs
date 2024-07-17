@@ -7,25 +7,35 @@ public class UIShopItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _cost;
+    [SerializeField] private Button _upgradeButton;
 
-    [SerializeField] private BonusUprader _bonusUpgrader;
-
+    private BonusUpgrader _bonusUpgrader;
     private ShopItem _shopItem;
 
     private void OnEnable()
     {
-        if (_shopItem == null)
-            return;
+        if (_shopItem != null)
+        {
+            _shopItem.ItemWasUpdated += UpdateBonusInfo;
+        }
 
-        _shopItem.ItemWasUpdated += UpdateBonusInfo;
+        if (_bonusUpgrader != null)
+        {
+            _bonusUpgrader.BonusWasUpgraded += OnBonusUpgraded;
+        }
     }
 
     private void OnDisable()
     {
-        if (_shopItem == null)
-            return;
+        if (_shopItem != null)
+        {
+            _shopItem.ItemWasUpdated -= UpdateBonusInfo;
+        }
 
-        _shopItem.ItemWasUpdated += UpdateBonusInfo;
+        if (_bonusUpgrader != null)
+        {
+            _bonusUpgrader.BonusWasUpgraded -= OnBonusUpgraded;
+        }
     }
 
     private void UpdateBonusInfo()
@@ -34,14 +44,60 @@ public class UIShopItem : MonoBehaviour
         _icon.sprite = _shopItem.BonusData.BonusIcon;
         _cost.text = _shopItem.BonusData.BonusInfo.TotalBonusCost().ToString();
 
-        Debug.Log($"{_name.text} : {_cost.text}");
+        if (_bonusUpgrader != null)
+        {
+            _upgradeButton.interactable = _bonusUpgrader.CanUpgradeBonus(_shopItem);
+        }
+    }
+
+    private void OnBonusUpgraded(ShopItem item)
+    {
+        if (item == _shopItem)
+        {
+            UpdateBonusInfo();
+        }
     }
 
     public void SetupItem(ShopItem item)
     {
+        if (_shopItem != null)
+        {
+            _shopItem.ItemWasUpdated -= UpdateBonusInfo;
+        }
+
         _shopItem = item;
         _shopItem.ItemWasUpdated += UpdateBonusInfo;
 
+        _upgradeButton.onClick.AddListener(OnUpgradeButtonClick);
+
         UpdateBonusInfo();
+    }
+
+    private void OnUpgradeButtonClick()
+    {
+        if (_bonusUpgrader != null)
+        {
+            _bonusUpgrader.UpgradeBonus(_shopItem);
+        }
+    }
+
+    public void SetupBonusUpgrader(BonusUpgrader bonusUpgrader)
+    {
+        if (_bonusUpgrader != null)
+        {
+            _bonusUpgrader.BonusWasUpgraded -= OnBonusUpgraded;
+        }
+
+        _bonusUpgrader = bonusUpgrader;
+
+        if (_bonusUpgrader != null)
+        {
+            _bonusUpgrader.BonusWasUpgraded += OnBonusUpgraded;
+        }
+
+        if (_shopItem != null)
+        {
+            UpdateBonusInfo();
+        }
     }
 }

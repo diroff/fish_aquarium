@@ -1,5 +1,4 @@
 using System;
-using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,7 +18,7 @@ public class BonusData : ScriptableObject
 }
 
 [Serializable]
-public struct BonusInfo
+public class BonusInfo
 {
     [field: SerializeField] public int ID { get; private set; }
     [field: SerializeField] public string BonusName { get; private set; }

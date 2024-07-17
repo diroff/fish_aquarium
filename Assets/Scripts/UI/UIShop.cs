@@ -4,6 +4,7 @@ public class UIShop : MonoBehaviour
 {
     [SerializeField] private Transform _tileSpawnPoint;
     [SerializeField] private UIShopItem _shopItemPrefab;
+    [SerializeField] private BonusUpgrader _bonusUpgrader;
 
     [SerializeField] private Shop _shop;
 
@@ -22,7 +23,9 @@ public class UIShop : MonoBehaviour
     private void SetupShop()
     {
         if (!_isCreated)
+        {
             CreateShopGrid();
+        }
     }
 
     private void CreateShopGrid()
@@ -33,9 +36,9 @@ public class UIShop : MonoBehaviour
         {
             var shopItem = Instantiate(_shopItemPrefab, _tileSpawnPoint);
             shopItem.SetupItem(item);
+            shopItem.SetupBonusUpgrader(_bonusUpgrader);
         }
 
         _isCreated = true;
-        Debug.Log("UI shop was created!");
     }
 }
