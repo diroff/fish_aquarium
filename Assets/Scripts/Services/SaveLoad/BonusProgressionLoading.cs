@@ -22,7 +22,7 @@ public class BonusProgressionLoading : MonoBehaviour
                 if(bonusData.BonusInfo.ID == bonusDataProgression.ID)
                 {
                     bonusData.BonusInfo.SetLevel(bonusDataProgression.Level);
-                    Debug.Log($"Bonus with id {bonusData.BonusInfo.ID} now has level {bonusDataProgression.Level}");
+                    Debug.Log($"Bonus with id {bonusData.BonusInfo.ID} now has level {bonusData.BonusInfo.Level}");
                     break;
                 }
             }

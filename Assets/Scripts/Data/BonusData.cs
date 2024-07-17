@@ -46,6 +46,11 @@ public struct BonusInfo
         Level = level;
     }
 
+    public void AddLevel(int count)
+    {
+        Level += count;
+    }
+
     public float TotalBonusTime()
     {
         return (BaseBonusTime + BonusTimeForLevel) * Level;

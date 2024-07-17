@@ -17,6 +17,9 @@ public class BonusProgression : MonoBehaviour
 
     private void LoadData()
     {
+        if (_data != null)
+            return;
+
         _storageService.Load<BonusDatas>(Key, data =>
         {
             if (data == null)
@@ -24,6 +27,7 @@ public class BonusProgression : MonoBehaviour
             else
                 _data = data;
         });
+
     }
 
     private void FirstSave()
@@ -33,9 +37,7 @@ public class BonusProgression : MonoBehaviour
         var allBonusData = Resources.LoadAll<BonusData>("Data/BonusData");
 
         foreach (var item in allBonusData)
-        {
-            data.Datas.Add(item.BonusInfo);
-        }
+            data.Datas.Add(new ProgressionBonusData(item.BonusInfo.ID, item.BonusInfo.Level));
 
         SaveData(data);
     }
@@ -45,58 +47,29 @@ public class BonusProgression : MonoBehaviour
         _storageService.Save(Key, data, success =>
         {
             if (success)
+            {
+                _data = data;
                 Debug.Log("Data saved successfully!");
+            }
             else
+            {
                 Debug.LogError("Failed to save data.");
+            }
         });
     }
 
-    public BonusInfo GetDataByID(int id)
+    public ProgressionBonusData GetDataFieldFromID(int id)
     {
-        BonusInfo info = new BonusInfo();
+        GetData();
 
-        var data = GetData();
-
-        foreach (var item in data.Datas)
-        {
-            if (item.ID == id)
-            {
-                info = item;
-                break;
-            }
-        }
-
-        return info;
-    }
-
-    public void SaveChangesOnBonusInfo(int id)
-    {
-        var field = GetDataByID(id);
-
-        var data = GetData();
-
-        foreach (var item in data.Datas)
-        {
-            if (item.ID == field.ID)
-            {
-                item.SetLevel(field.Level);
-                break;
-            }
-        }
-
-        SaveData(data);
-
-    }
-
-    [ContextMenu("What loaded?")]
-    public void ShowLoadedDatas()
-    {
-        LoadData();
+        return _data.Datas.Find(data => data.ID == id);
     }
 
     public BonusDatas GetData()
     {
-        LoadData();
+        if (_data == null)
+            LoadData();
+
         return _data;
     }
 }
@@ -104,5 +77,25 @@ public class BonusProgression : MonoBehaviour
 [Serializable]
 public class BonusDatas
 {
-    public List<BonusInfo> Datas = new List<BonusInfo>();
+    public List<ProgressionBonusData> Datas = new List<ProgressionBonusData>();
+}
+
+public class ProgressionBonusData
+{
+    public int ID { get; private set; }
+    public int Level { get; private set; }
+
+    public ProgressionBonusData(int id, int level)
+    {
+        ID = id;
+        Level = level;
+    }
+
+    public void SetLevel(int level)
+    {
+        if (level <= 0)
+            level = 1;
+
+        Level = level;
+    }
 }
