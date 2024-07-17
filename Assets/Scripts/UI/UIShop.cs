@@ -3,25 +3,39 @@ using UnityEngine;
 public class UIShop : MonoBehaviour
 {
     [SerializeField] private Transform _tileSpawnPoint;
+    [SerializeField] private UIShopItem _shopItemPrefab;
 
-    [SerializeField] private BonusProgressionLoading _dataLoader;
-    [SerializeField] private UIShopTile _tilePrefab;
+    [SerializeField] private Shop _shop;
 
-    private BonusData[] _datas;
+    private bool _isCreated = false;
 
-    private void Start()
+    private void OnEnable()
     {
-        SetupShopGrid();
+        _shop.BonusWasLoaded += SetupShop;
     }
 
-    private void SetupShopGrid()
+    private void OnDisable()
     {
-        _datas = _dataLoader.GetCurrentBonusData();
+        _shop.BonusWasLoaded -= SetupShop;
+    }
 
-        foreach (var item in _datas)
+    private void SetupShop()
+    {
+        if (!_isCreated)
+            CreateShopGrid();
+    }
+
+    private void CreateShopGrid()
+    {
+        var datas = _shop.Datas;
+
+        foreach (var item in datas)
         {
-            var tile = Instantiate(_tilePrefab, _tileSpawnPoint);
-            tile.SetData(item);
+            var shopItem = Instantiate(_shopItemPrefab, _tileSpawnPoint);
+            shopItem.SetupItem(item);
         }
+
+        _isCreated = true;
+        Debug.Log("UI shop was created!");
     }
 }

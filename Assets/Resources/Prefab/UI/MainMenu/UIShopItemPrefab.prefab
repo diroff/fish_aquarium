@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 2307066922081140021}
   - component: {fileID: 3411659017027857541}
   m_Layer: 5
-  m_Name: UIShopTilePrefab
+  m_Name: UIShopItemPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

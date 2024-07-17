@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BonusProgressionLoading : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class BonusProgressionLoading : MonoBehaviour
     [SerializeField] private BonusProgression _bonusProgressionData;
 
     private BonusData[] _bonusData;
+
+    public UnityAction DataWasLoaded;
 
     private void Start()
     {
@@ -32,10 +35,12 @@ public class BonusProgressionLoading : MonoBehaviour
                 if (bonusData.BonusInfo.ID == bonusDataProgression.ID)
                 {
                     bonusData.BonusInfo.SetLevel(bonusDataProgression.Level);
-                    Debug.Log($"Bonus with id {bonusData.BonusInfo.ID} now has level {bonusData.BonusInfo.Level}");
                     break;
                 }
             }
         }
+
+        DataWasLoaded?.Invoke();
+        Debug.Log("Progress was loaded!");
     }
 }
