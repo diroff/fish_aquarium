@@ -13,6 +13,9 @@ public class UIShop : MonoBehaviour
     private void OnEnable()
     {
         _shop.BonusWasLoaded += SetupShop;
+
+        if (_shop.IsDataLoaded)
+            SetupShop();
     }
 
     private void OnDisable()
@@ -23,9 +26,7 @@ public class UIShop : MonoBehaviour
     private void SetupShop()
     {
         if (!_isCreated)
-        {
             CreateShopGrid();
-        }
     }
 
     private void CreateShopGrid()

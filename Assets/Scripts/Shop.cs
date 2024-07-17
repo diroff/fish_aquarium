@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
     private BonusData[] _data;
 
     public List<ShopItem> Datas { get; private set; } = new List<ShopItem>();
+    public bool IsDataLoaded { get; private set; } = false;
 
     public UnityAction BonusWasLoaded;
 
@@ -37,6 +38,7 @@ public class Shop : MonoBehaviour
         foreach (var item in _data)
             Datas.Add(new ShopItem(item));
 
+        IsDataLoaded = true;
         BonusWasLoaded?.Invoke();
         Debug.Log("Shop data was created!");
     }
