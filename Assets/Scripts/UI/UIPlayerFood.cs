@@ -13,14 +13,14 @@ public class UIPlayerFood : MonoBehaviour
 
     private void OnEnable()
     {
-        _foodStorage.Load();
         _foodStorage.FoodCountChanged += OnFoodCountChanged;
+        _foodStorage.Load();
     }
 
     private void OnDisable()
     {
-        _foodStorage.Load();
         _foodStorage.FoodCountChanged -= OnFoodCountChanged;
+        _foodStorage.Load();
     }
 
     private void OnFoodCountChanged(int previousValue, int currentValue)

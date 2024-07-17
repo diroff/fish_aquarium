@@ -773,7 +773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 688796110}
   m_Layer: 5
-  m_Name: MenuPanel
+  m_Name: UIMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 1097451991}
   - component: {fileID: 1097451990}
   m_Layer: 5
-  m_Name: Exit
+  m_Name: UIExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,13 +1135,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1248303069}
   - component: {fileID: 1248303070}
+  - component: {fileID: 1248303071}
   m_Layer: 5
   m_Name: ShopPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1248303069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1154,8 +1155,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2079766740}
   - {fileID: 1837345849}
+  - {fileID: 2029732806}
   m_Father: {fileID: 418520417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1177,6 +1178,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodStorage: {fileID: 768513950}
   _foodCountText: {fileID: 2079766741}
+--- !u!114 &1248303071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248303068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8884ba193901db743916ccdf6d0a3e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileSpawnPoint: {fileID: 1837345849}
+  _dataLoader: {fileID: 1589596103}
+  _tilePrefab: {fileID: 3411659017027857541, guid: e0421fedd08a5ec4a8d0f1cbb3edad25, type: 3}
 --- !u!1 &1394768840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1281,7 @@ GameObject:
   - component: {fileID: 1438224206}
   - component: {fileID: 1438224208}
   m_Layer: 5
-  m_Name: MenuPanelBackground
+  m_Name: UIMenuPanelBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1368,7 +1384,7 @@ GameObject:
   - component: {fileID: 1503442093}
   - component: {fileID: 1503442092}
   m_Layer: 5
-  m_Name: Shop
+  m_Name: UIShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1498,6 +1514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1589596102}
   - component: {fileID: 1589596101}
+  - component: {fileID: 1589596103}
   m_Layer: 0
   m_Name: BonusProgression
   m_TagString: Untagged
@@ -1532,6 +1549,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1589596103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589596100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6561eb4e1798e014b882b894a43e984f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pathToBonusData: Data/BonusData
+  _bonusProgressionData: {fileID: 1589596101}
 --- !u!1 &1758208080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1576,7 @@ GameObject:
   - component: {fileID: 1758208083}
   - component: {fileID: 1758208082}
   m_Layer: 5
-  m_Name: Start
+  m_Name: UIStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1678,12 +1709,12 @@ GameObject:
   - component: {fileID: 1783506574}
   - component: {fileID: 1783506573}
   m_Layer: 5
-  m_Name: Back
+  m_Name: UIBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1783506572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1699,10 +1730,10 @@ RectTransform:
   - {fileID: 271140061}
   m_Father: {fileID: 1837345849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 611, y: -350}
+  m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783506573
 MonoBehaviour:
@@ -1811,12 +1842,12 @@ GameObject:
   - component: {fileID: 1817630710}
   - component: {fileID: 1817630709}
   m_Layer: 5
-  m_Name: ReduceMoney
+  m_Name: UIReduceMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1817630708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1832,10 +1863,10 @@ RectTransform:
   - {fileID: 86337726}
   m_Father: {fileID: 1837345849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 389, y: -350}
+  m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817630709
 MonoBehaviour:
@@ -1945,7 +1976,7 @@ GameObject:
   - component: {fileID: 1837345850}
   - component: {fileID: 1837345853}
   m_Layer: 5
-  m_Name: ShopPanelBackground
+  m_Name: UIShopPanelBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1971,7 +2002,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 512, y: 512}
+  m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837345850
 MonoBehaviour:
@@ -1993,10 +2024,10 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 192, y: 192}
+  m_CellSize: {x: 768, y: 150}
   m_Spacing: {x: 30, y: 30}
   m_Constraint: 1
-  m_ConstraintCount: 2
+  m_ConstraintCount: 1
 --- !u!114 &1837345851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2116,6 +2147,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2029732805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2029732806}
+  - component: {fileID: 2029732808}
+  - component: {fileID: 2029732807}
+  m_Layer: 5
+  m_Name: UIFoodContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2029732806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029732805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2079766740}
+  - {fileID: 2083142958}
+  m_Father: {fileID: 1248303069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 128, y: 128}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &2029732807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029732805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4e5ae314f979d66429cbe3355275c1bd, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.1
+--- !u!222 &2029732808
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029732805}
+  m_CullTransparentMesh: 1
 --- !u!1 &2079766739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,12 +2236,12 @@ GameObject:
   - component: {fileID: 2079766742}
   - component: {fileID: 2079766741}
   m_Layer: 5
-  m_Name: FoodCount
+  m_Name: UIFoodCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2079766740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2141,18 +2249,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079766739}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1248303069}
+  m_Father: {fileID: 2029732806}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 500, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -15, y: -15}
+  m_SizeDelta: {x: -30, y: -30}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &2079766741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,8 +2290,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2200,15 +2308,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 34.35
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2250,6 +2358,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079766739}
   m_CullTransparentMesh: 1
+--- !u!1 &2083142957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083142958}
+  - component: {fileID: 2083142960}
+  - component: {fileID: 2083142959}
+  m_Layer: 5
+  m_Name: UIFoodIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2083142958
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083142957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029732806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 128, y: 128}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2083142959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083142957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4f0031ef7739b1d46b407c37cd30a7ee, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2083142960
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083142957}
+  m_CullTransparentMesh: 1
 --- !u!1 &2109195540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,12 +2446,12 @@ GameObject:
   - component: {fileID: 2109195543}
   - component: {fileID: 2109195542}
   m_Layer: 5
-  m_Name: AddMoney
+  m_Name: UIAddMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2109195541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2284,10 +2467,10 @@ RectTransform:
   - {fileID: 950457273}
   m_Father: {fileID: 1837345849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 611, y: -128}
+  m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2109195542
 MonoBehaviour:
