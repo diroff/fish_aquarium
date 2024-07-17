@@ -65,7 +65,6 @@ public class FoodStorageLoader : MonoBehaviour
 
     public FoodData GetData()
     {
-        Load();
         return _food;
     }
 }

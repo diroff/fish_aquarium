@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.XR;
 
 public class BonusUpgrader : MonoBehaviour
 {
@@ -11,18 +10,46 @@ public class BonusUpgrader : MonoBehaviour
     private ProgressionBonusData _bonusData;
 
     public UnityAction<ShopItem> BonusWasUpgraded;
+    public UnityAction FoodCountWasChanged;
+
+    private int _currentFoodCount;
+
+    private void OnEnable()
+    {
+        _foodStorage.FoodCountChanged += OnFoodCountChanged;
+        _currentFoodCount = _foodStorage.GetData().FoodCount;
+    }
+
+    private void OnDisable()
+    {
+        _foodStorage.FoodCountChanged -= OnFoodCountChanged;
+    }
+
+    private void OnFoodCountChanged(int previousCount, int currentCount)
+    {
+        _currentFoodCount = currentCount;
+        FoodCountWasChanged?.Invoke();
+    }
 
     public bool CanUpgradeBonus(ShopItem item)
     {
-        _datas = _bonusProgression.GetData();
+        CheckDataState();
         _bonusData = _bonusProgression.GetDataFieldFromID(item.BonusData.BonusInfo.ID);
 
         var cost = item.BonusData.BonusInfo.TotalBonusCost();
-        return _foodStorage.GetData().FoodCount >= cost;
+        return _currentFoodCount >= cost;
+    }
+
+    private void CheckDataState()
+    {
+        if (_datas == null)
+            _datas = _bonusProgression.GetData();
     }
 
     public void UpgradeBonus(ShopItem item)
     {
+        _bonusData = _bonusProgression.GetDataFieldFromID(item.BonusData.BonusInfo.ID);
+
         if (CanUpgradeBonus(item))
         {
             var cost = item.BonusData.BonusInfo.TotalBonusCost();

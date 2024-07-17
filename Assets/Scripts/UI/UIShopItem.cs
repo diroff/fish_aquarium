@@ -14,20 +14,29 @@ public class UIShopItem : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_shopItem == null)
-            return;
+        if (_shopItem != null)
+        {
+            _shopItem.ItemWasUpdated += UpdateBonusInfo;
+            UpdateBonusInfo();
+        }
 
-        _shopItem.ItemWasUpdated += UpdateBonusInfo;
-        _bonusUpgrader.BonusWasUpgraded += OnBonusUpgraded;
+        if (_bonusUpgrader != null)
+        {
+            _bonusUpgrader.FoodCountWasChanged += CheckUpgradedState;
+        }
     }
 
     private void OnDisable()
     {
-        if (_shopItem == null)
-            return;
+        if (_shopItem != null)
+        {
+            _shopItem.ItemWasUpdated -= UpdateBonusInfo;
+        }
 
-        _shopItem.ItemWasUpdated -= UpdateBonusInfo;
-        _bonusUpgrader.BonusWasUpgraded -= OnBonusUpgraded;
+        if (_bonusUpgrader != null)
+        {
+            _bonusUpgrader.FoodCountWasChanged -= CheckUpgradedState;
+        }
     }
 
     private void UpdateBonusInfo()
@@ -37,13 +46,9 @@ public class UIShopItem : MonoBehaviour
         _cost.text = _shopItem.BonusData.BonusInfo.TotalBonusCost().ToString();
 
         if (_bonusUpgrader != null)
+        {
             _upgradeButton.interactable = _bonusUpgrader.CanUpgradeBonus(_shopItem);
-    }
-
-    private void OnBonusUpgraded(ShopItem item)
-    {
-        if (item == _shopItem)
-            UpdateBonusInfo();
+        }
     }
 
     public void SetupItem(ShopItem item)
@@ -55,19 +60,30 @@ public class UIShopItem : MonoBehaviour
         UpdateBonusInfo();
     }
 
+    private void CheckUpgradedState()
+    {
+        if (_bonusUpgrader != null)
+        {
+            _upgradeButton.interactable = _bonusUpgrader.CanUpgradeBonus(_shopItem);
+        }
+    }
+
     private void OnUpgradeButtonClick()
     {
         if (_bonusUpgrader != null)
+        {
             _bonusUpgrader.UpgradeBonus(_shopItem);
+        }
     }
 
     public void SetupBonusUpgrader(BonusUpgrader bonusUpgrader)
     {
         _bonusUpgrader = bonusUpgrader;
-
-        _bonusUpgrader.BonusWasUpgraded += OnBonusUpgraded;
+        _bonusUpgrader.FoodCountWasChanged += CheckUpgradedState;
 
         if (_shopItem != null)
+        {
             UpdateBonusInfo();
+        }
     }
 }
