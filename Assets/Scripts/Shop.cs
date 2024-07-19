@@ -40,6 +40,5 @@ public class Shop : MonoBehaviour
 
         IsDataLoaded = true;
         BonusWasLoaded?.Invoke();
-        Debug.Log("Shop data was created!");
     }
 }

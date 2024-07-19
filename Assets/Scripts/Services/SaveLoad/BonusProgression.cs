@@ -27,7 +27,6 @@ public class BonusProgression : MonoBehaviour
             else
                 _data = data;
         });
-
     }
 
     private void FirstSave()
@@ -38,6 +37,8 @@ public class BonusProgression : MonoBehaviour
 
         foreach (var item in allBonusData)
             data.Datas.Add(new ProgressionBonusData(item.BonusInfo.ID, item.BonusInfo.Level));
+
+        data.Datas.Sort((x, y) => x.ID.CompareTo(y.ID));
 
         SaveData(data);
     }
