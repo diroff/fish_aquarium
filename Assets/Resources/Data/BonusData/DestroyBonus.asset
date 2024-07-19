@@ -22,3 +22,4 @@ MonoBehaviour:
     <Level>k__BackingField: 1
     <TimeBeforeDestroying>k__BackingField: 5
   _bonusIcon: {fileID: -618255053, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}
+  _canBeUpgraded: 0

@@ -19,6 +19,7 @@ MonoBehaviour:
     <BaseCost>k__BackingField: 15
     <CostForLevel>k__BackingField: 55
     <BonusTimeForLevel>k__BackingField: 1
-    <Level>k__BackingField: 1
+    <Level>k__BackingField: 6
     <TimeBeforeDestroying>k__BackingField: 5
   _bonusIcon: {fileID: -193432122, guid: f0ea2f35ad9ff0845932a262c6a983e1, type: 3}
+  _canBeUpgraded: 1

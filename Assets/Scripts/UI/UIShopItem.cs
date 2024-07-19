@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class UIShopItem : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private Image _icon;
+    [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _cost;
+    [SerializeField] private TextMeshProUGUI _level;
+    [SerializeField] private TextMeshProUGUI _duration;
+
     [SerializeField] private Button _upgradeButton;
 
     private BonusUpgrader _bonusUpgrader;
@@ -44,6 +47,8 @@ public class UIShopItem : MonoBehaviour
         _name.text = _shopItem.BonusData.name;
         _icon.sprite = _shopItem.BonusData.BonusIcon;
         _cost.text = _shopItem.BonusData.BonusInfo.TotalBonusCost().ToString();
+        _level.text = _shopItem.BonusData.BonusInfo.Level.ToString();
+        _duration.text = _shopItem.BonusData.BonusInfo.TotalBonusTime().ToString();
 
         if (_bonusUpgrader != null)
         {
