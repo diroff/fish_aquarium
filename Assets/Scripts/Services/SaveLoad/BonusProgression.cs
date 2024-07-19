@@ -36,7 +36,10 @@ public class BonusProgression : MonoBehaviour
         var allBonusData = Resources.LoadAll<BonusData>("Data/BonusData");
 
         foreach (var item in allBonusData)
-            data.Datas.Add(new ProgressionBonusData(item.BonusInfo.ID, item.BonusInfo.Level));
+        {
+            if(item.CanBeUpgraded)
+                data.Datas.Add(new ProgressionBonusData(item.BonusInfo.ID, item.BonusInfo.Level));
+        }
 
         data.Datas.Sort((x, y) => x.ID.CompareTo(y.ID));
 

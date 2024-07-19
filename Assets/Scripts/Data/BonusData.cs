@@ -6,12 +6,12 @@ using UnityEngine.Events;
 public class BonusData : ScriptableObject
 {
     [SerializeField] private BonusInfo _bonusInfo;
-
     [SerializeField] private Sprite _bonusIcon;
+    [SerializeField] private bool _canBeUpgraded = true;
 
     public BonusInfo BonusInfo => _bonusInfo;
-
     public Sprite BonusIcon => _bonusIcon;
+    public bool CanBeUpgraded => _canBeUpgraded;
 
     public UnityAction BonusWasUpdated;
     public UnityAction<int> BonusLevelWasUpdated;

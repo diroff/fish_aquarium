@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,13 +20,19 @@ public class BonusProgressionLoading : MonoBehaviour
     public BonusData[] GetCurrentBonusData()
     {
         if (_bonusData == null)
-        {
-            _bonusData = Resources.LoadAll<BonusData>(_pathToBonusData);
-
-            Array.Sort(_bonusData, (x, y) => x.BonusInfo.ID.CompareTo(y.BonusInfo.ID));
-        }
+            PrepareBonusData();
 
         return _bonusData;
+    }
+
+    private void PrepareBonusData()
+    {
+        var datas = Resources.LoadAll<BonusData>(_pathToBonusData);
+
+        _bonusData = datas
+            .Where(data => data.CanBeUpgraded)
+            .OrderBy(data => data.BonusInfo.ID)
+            .ToArray();
     }
 
     private void SetBonusProgression()
