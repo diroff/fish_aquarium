@@ -9,10 +9,12 @@ public class FoodStorageLoader : MonoBehaviour
     private FoodData _food;
 
     public UnityAction<int, int> FoodCountChanged;
+    public UnityAction OnStorageServiceCreated;
 
     private void Awake()
     {
         _storageService = new JsonToFileStorageService();
+        OnStorageServiceCreated?.Invoke();
 
         _storageService.Load<FoodData>(Key, data =>
         {
