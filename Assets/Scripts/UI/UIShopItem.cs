@@ -5,12 +5,11 @@ using UnityEngine.UI;
 public class UIShopItem : MonoBehaviour
 {
     [SerializeField] private Image _icon;
-    [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _cost;
     [SerializeField] private TextMeshProUGUI _level;
-    [SerializeField] private TextMeshProUGUI _duration;
 
     [SerializeField] private Button _upgradeButton;
+    [SerializeField] private Image _buttonBlocker;
 
     private BonusUpgrader _bonusUpgrader;
     private ShopItem _shopItem;
@@ -44,16 +43,17 @@ public class UIShopItem : MonoBehaviour
 
     private void UpdateBonusInfo()
     {
-        _name.text = _shopItem.BonusData.name;
         _icon.sprite = _shopItem.BonusData.BonusIcon;
         _cost.text = _shopItem.BonusData.BonusInfo.TotalBonusCost().ToString();
         _level.text = _shopItem.BonusData.BonusInfo.Level.ToString();
-        _duration.text = _shopItem.BonusData.BonusInfo.TotalBonusTime().ToString();
 
-        if (_bonusUpgrader != null)
-        {
-            _upgradeButton.interactable = _bonusUpgrader.CanUpgradeBonus(_shopItem);
-        }
+        if (_bonusUpgrader == null)
+            return;
+
+        bool canBeUpgraded = _bonusUpgrader.CanUpgradeBonus(_shopItem);
+
+        _upgradeButton.interactable = canBeUpgraded;
+        _buttonBlocker.gameObject.SetActive(!canBeUpgraded);
     }
 
     public void SetupItem(ShopItem item)
@@ -67,18 +67,21 @@ public class UIShopItem : MonoBehaviour
 
     private void CheckUpgradedState()
     {
-        if (_bonusUpgrader != null)
-        {
-            _upgradeButton.interactable = _bonusUpgrader.CanUpgradeBonus(_shopItem);
-        }
+        if (_bonusUpgrader == null)
+            return;
+
+        bool canBeUpgraded = _bonusUpgrader.CanUpgradeBonus(_shopItem);
+
+        _upgradeButton.interactable = canBeUpgraded;
+        _buttonBlocker.gameObject.SetActive(!canBeUpgraded);
     }
 
     private void OnUpgradeButtonClick()
     {
-        if (_bonusUpgrader != null)
-        {
-            _bonusUpgrader.UpgradeBonus(_shopItem);
-        }
+        if (_bonusUpgrader == null)
+            return;
+
+        _bonusUpgrader.UpgradeBonus(_shopItem);
     }
 
     public void SetupBonusUpgrader(BonusUpgrader bonusUpgrader)
@@ -86,9 +89,9 @@ public class UIShopItem : MonoBehaviour
         _bonusUpgrader = bonusUpgrader;
         _bonusUpgrader.FoodCountWasChanged += CheckUpgradedState;
 
-        if (_shopItem != null)
-        {
-            UpdateBonusInfo();
-        }
+        if (_shopItem == null)
+            return;
+
+        UpdateBonusInfo();
     }
 }
