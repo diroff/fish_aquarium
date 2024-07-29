@@ -1,9 +1,9 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIQuest : MonoBehaviour
 {
-    [SerializeField] protected TextMeshProUGUI QuestName;
+    [SerializeField] protected Image QuestIcon;
 
     protected Quest Quest;
     protected bool IsCompleted = false;
@@ -27,15 +27,13 @@ public class UIQuest : MonoBehaviour
     public virtual void SetQuest(Quest quest)
     {
         Quest = quest;
-        QuestName.text = quest.QuestGoal;
+        QuestIcon.sprite = quest.Icon;
         Quest.QuestCompleted += OnQuestCompleted;
     }
 
     private void OnQuestCompleted()
     {
         //later
-
-        QuestName.fontStyle = FontStyles.Strikethrough;
         IsCompleted = true;
     }
 }

@@ -19,7 +19,7 @@ public class UIStartQuestPanel : MonoBehaviour
         _pauseButton.SetActive(false);
         _rectTransform = _questPanel.GetComponent<RectTransform>();
 
-        _rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, (80 * _level.Quests.Count) + 100);
+        //_rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, (80 * _level.Quests.Count) + 100);
     }
 
     public void StartGame()
@@ -31,6 +31,6 @@ public class UIStartQuestPanel : MonoBehaviour
 
 
         _rectTransform.anchoredPosition = Vector3.zero;
-        _rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, (90 * _level.Quests.Count));
+        // _rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, (90 * _level.Quests.Count));
     }
 }

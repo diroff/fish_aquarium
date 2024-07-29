@@ -1,5 +1,10 @@
-﻿public class UIQuantitativeQuest : UIQuest
+﻿using TMPro;
+using UnityEngine;
+
+public class UIQuantitativeQuest : UIQuest
 {
+    [SerializeField] private TextMeshProUGUI _progressCountText;
+
     private QuantitativeQuest _quest;
 
     protected override void OnEnable()
@@ -30,10 +35,10 @@
     {
         if (IsCompleted)
         {
-            QuestName.text = _quest.QuestGoal + ":" + requiredCount + "/" + requiredCount;
+            _progressCountText.text = requiredCount + "/" + requiredCount;
             return;
         }
 
-        QuestName.text = _quest.QuestGoal + ":" + currentCount + "/" + requiredCount;
+        _progressCountText.text = currentCount + "/" + requiredCount;
     }
 }
