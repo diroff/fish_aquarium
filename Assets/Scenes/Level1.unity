@@ -2905,22 +2905,6 @@ PrefabInstance:
       propertyPath: _level
       value: 
       objectReference: {fileID: 1977684429}
-    - target: {fileID: 383803416415524031, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 383803416415524031, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 383803416415524031, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 383803416415524031, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5205845452493052056, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3001,42 +2985,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5351410897533896884, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_Padding.m_Top
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5351410897533896884, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_ChildAlignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5351410897533896884, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_Padding.m_Left
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5351410897533896884, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_Padding.m_Right
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5351410897533896884, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_Padding.m_Bottom
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633115925669843351, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828340691788896886, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: _base
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828340691788896886, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: _level
-      value: 
-      objectReference: {fileID: 1977684429}
-    - target: {fileID: 6828340691788896886, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
-      propertyPath: _forLevel
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 6828340691788896886, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
       propertyPath: _levelTime
       value: 
@@ -3049,6 +2997,10 @@ PrefabInstance:
       propertyPath: _startGameButton
       value: 
       objectReference: {fileID: 6854605593061091294}
+    - target: {fileID: 7113100942009617565, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
+      propertyPath: _level
+      value: 
+      objectReference: {fileID: 1977684429}
     - target: {fileID: 8223778682686322426, guid: 8d385d234cfa4e34ab5c79c1dcfc854a, type: 3}
       propertyPath: m_Name
       value: UILevelQuests
