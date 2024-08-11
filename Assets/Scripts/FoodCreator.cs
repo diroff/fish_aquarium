@@ -116,9 +116,6 @@ public class FoodCreator : MonoBehaviour
 
     private void DisableAllFood()
     {
-        foreach (var item in _food)
-        {
-            item.ReturnToPool();
-        }
+        Destroy(this);
     }
 }
