@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class UIBonus : MonoBehaviour
 {
     [SerializeField] private Image _iconPlacement;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private Image _slider;
 
     public void SetIcon(Sprite sprite)
     {
@@ -13,6 +13,6 @@ public class UIBonus : MonoBehaviour
 
     public void SetIndicatorValue(float currentTime, float bonusTime)
     {
-        _slider.value = currentTime / bonusTime;
+        _slider.fillAmount = currentTime / bonusTime;
     }
 }

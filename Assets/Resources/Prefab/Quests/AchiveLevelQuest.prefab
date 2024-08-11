@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questGoal: Achive level
+  _icon: {fileID: 21300000, guid: 7fc2916b8906c1a489f685109bcf6d8d, type: 3}
   _requiredCount: 25
   _player: {fileID: 0}

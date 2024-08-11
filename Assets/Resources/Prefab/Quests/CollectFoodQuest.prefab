@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questGoal: Collect food
+  _icon: {fileID: 21300000, guid: 4a8c4ad61c32dbe4c831840671f3701a, type: 3}
   _requiredCount: 100
   _player: {fileID: 0}

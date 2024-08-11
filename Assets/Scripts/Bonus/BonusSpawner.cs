@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BonusSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _uiPanel;
+    [SerializeField] private UIBonusPanel _uiPanel;
     [SerializeField] private ObjectPool _objectPool;
     [SerializeField] private LevelEnemies _levelEnemies;
 

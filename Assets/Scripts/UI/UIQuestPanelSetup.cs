@@ -6,8 +6,8 @@ public class UIQuestPanelSetup : MonoBehaviour
 
     [SerializeField] private Level _level;
 
-    [SerializeField] private float _base; // 50
-    [SerializeField] private float _forLevel; // 150
+    [SerializeField] private float _base;
+    [SerializeField] private float _forLevel;
 
     private RectTransform _rectTransform;
 

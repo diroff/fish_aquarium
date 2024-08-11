@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questGoal: Eat fish
+  _icon: {fileID: 375416520, guid: 7624f88c146d18e4bad759cb9082eba3, type: 3}
   _requiredCount: 10
   _player: {fileID: 0}

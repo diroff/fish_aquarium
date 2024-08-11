@@ -46,7 +46,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5205845452493052056}
   - component: {fileID: 27035847950090085}
-  - component: {fileID: 6828340691788896886}
   - component: {fileID: 7113100942009617565}
   m_Layer: 5
   m_Name: UILevelQuests
@@ -91,21 +90,6 @@ MonoBehaviour:
   _quantitativeQuestPrefab: {fileID: 5717930285616551787, guid: 85661a7726099b94586c3a20fd4aa048, type: 3}
   _level: {fileID: 0}
   _questPanel: {fileID: 4446687301723144035}
---- !u!114 &6828340691788896886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8223778682686322426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9cd9ef3fa8768448a709e67781c1309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pauseButton: {fileID: 0}
-  _startGameButton: {fileID: 0}
-  _levelTime: {fileID: 0}
 --- !u!114 &7113100942009617565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,10 +226,6 @@ PrefabInstance:
       propertyPath: m_Padding.m_Bottom
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 2854082642436385416, guid: 550d628bbbb161a4ea146f862431ebba, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6828340691788896886}
     - target: {fileID: 5905794803616164393, guid: 550d628bbbb161a4ea146f862431ebba, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

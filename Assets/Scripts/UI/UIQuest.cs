@@ -28,6 +28,7 @@ public class UIQuest : MonoBehaviour
     {
         Quest = quest;
         QuestIcon.sprite = quest.Icon;
+        QuestIcon.preserveAspect = true;
         Quest.QuestCompleted += OnQuestCompleted;
     }
 
