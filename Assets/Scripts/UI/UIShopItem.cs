@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class UIShopItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _level;
 
     [SerializeField] private Button _upgradeButton;
-    [SerializeField] private Image _buttonBlocker;
+    [SerializeField] private List<Image> _buttonBlockers;
 
     private BonusUpgrader _bonusUpgrader;
     private ShopItem _shopItem;
@@ -23,22 +24,16 @@ public class UIShopItem : MonoBehaviour
         }
 
         if (_bonusUpgrader != null)
-        {
             _bonusUpgrader.FoodCountWasChanged += CheckUpgradedState;
-        }
     }
 
     private void OnDisable()
     {
         if (_shopItem != null)
-        {
             _shopItem.ItemWasUpdated -= UpdateBonusInfo;
-        }
 
         if (_bonusUpgrader != null)
-        {
             _bonusUpgrader.FoodCountWasChanged -= CheckUpgradedState;
-        }
     }
 
     private void UpdateBonusInfo()
@@ -50,10 +45,7 @@ public class UIShopItem : MonoBehaviour
         if (_bonusUpgrader == null)
             return;
 
-        bool canBeUpgraded = _bonusUpgrader.CanUpgradeBonus(_shopItem);
-
-        _upgradeButton.interactable = canBeUpgraded;
-        _buttonBlocker.gameObject.SetActive(!canBeUpgraded);
+        SetUIBlockerState();
     }
 
     public void SetupItem(ShopItem item)
@@ -70,10 +62,7 @@ public class UIShopItem : MonoBehaviour
         if (_bonusUpgrader == null)
             return;
 
-        bool canBeUpgraded = _bonusUpgrader.CanUpgradeBonus(_shopItem);
-
-        _upgradeButton.interactable = canBeUpgraded;
-        _buttonBlocker.gameObject.SetActive(!canBeUpgraded);
+        SetUIBlockerState();
     }
 
     private void OnUpgradeButtonClick()
@@ -93,5 +82,15 @@ public class UIShopItem : MonoBehaviour
             return;
 
         UpdateBonusInfo();
+    }
+
+    private void SetUIBlockerState()
+    {
+        bool canBeUpgraded = _bonusUpgrader.CanUpgradeBonus(_shopItem);
+
+        _upgradeButton.interactable = canBeUpgraded;
+
+        foreach (var item in _buttonBlockers)
+            item.gameObject.SetActive(!canBeUpgraded);
     }
 }
