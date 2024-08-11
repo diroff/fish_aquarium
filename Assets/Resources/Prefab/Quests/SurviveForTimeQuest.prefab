@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questGoal: Survive for time
-  _icon: {fileID: 21300000, guid: 5eda94a9dcf71e445ad17e3c065d1460, type: 3}
+  _icon: {fileID: 21300000, guid: fcf7259ddd7f3124ca744fdeb02d2079, type: 3}
   _requiredCount: 15
