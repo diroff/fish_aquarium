@@ -80,7 +80,7 @@ public class FoodCreator : MonoBehaviour
     {
         int food = 0;
 
-        if (_foodValueRemaining <= _foodMaxValueOnLevel / 2)
+        if (_foodValueRemaining <= _foodMaxValueOnLevel / 2 && _foodValueRemaining > _foodMaxValueOnLevel / 4)
             food = Random.Range(_foodValueRemaining / 2, _foodValueRemaining);
         else if (_foodValueRemaining <= _foodMaxValueOnLevel / 4)
             food = _foodValueRemaining;
