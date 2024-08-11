@@ -41,4 +41,10 @@ public class UIQuantitativeQuest : UIQuest
 
         _progressCountText.text = currentCount + "/" + requiredCount;
     }
+
+    protected override void OnQuestCompleted()
+    {
+        base.OnQuestCompleted();
+        _progressCountText.gameObject.SetActive(false);
+    }
 }

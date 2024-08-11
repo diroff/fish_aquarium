@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class UIQuest : MonoBehaviour
 {
+    [SerializeField] private Image _overlayIcon;
     [SerializeField] protected Image QuestIcon;
 
     protected Quest Quest;
@@ -32,9 +33,9 @@ public class UIQuest : MonoBehaviour
         Quest.QuestCompleted += OnQuestCompleted;
     }
 
-    private void OnQuestCompleted()
+    protected virtual void OnQuestCompleted()
     {
-        //later
+        _overlayIcon.gameObject.SetActive(true);
         IsCompleted = true;
     }
 }
