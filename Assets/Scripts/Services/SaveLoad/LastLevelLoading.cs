@@ -7,7 +7,7 @@ public class LastLevelLoading : MonoBehaviour
 
     public void LoadLastLevel()
     {
-        var levelName = _progression.GetData().LevelName;
+        var levelName = _progression.GetData().LastLevelName;
         _levelLoading.LoadLevel(levelName);
     }
 }

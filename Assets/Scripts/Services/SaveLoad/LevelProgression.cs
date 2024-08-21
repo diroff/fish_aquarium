@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelProgression : MonoBehaviour
 {
-    [SerializeField] private string _defaulLevelName;
+    [SerializeField] private string _defaultLevelName = "Level1";
 
     public const string Key = "LevelProgression";
 
@@ -15,10 +16,10 @@ public class LevelProgression : MonoBehaviour
 
         _storageService.Load<LevelProgress>(Key, data =>
         {
-            if (data == default)
+            if (data == null || data.AvailableLevels.Count == 0)
                 FirstSave();
-
-            Load();
+            else
+                Load();
         });
     }
 
@@ -32,15 +33,21 @@ public class LevelProgression : MonoBehaviour
 
     public void FirstSave()
     {
-        Save(_defaulLevelName);
+        LevelProgress data = new LevelProgress();
+        data.LastLevelName = _defaultLevelName;
+        data.AvailableLevels.Add(_defaultLevelName);
+
+        _storageService.Save(Key, data);
     }
 
     public void Save(string levelName)
     {
-        LevelProgress data = new LevelProgress();
-        data.LevelName = levelName;
+        _levelData.LastLevelName = levelName;
 
-        _storageService.Save(Key, data);
+        if (!_levelData.AvailableLevels.Contains(levelName))
+            _levelData.AvailableLevels.Add(levelName);
+
+        _storageService.Save(Key, _levelData);
     }
 
     public LevelProgress GetData()
@@ -52,5 +59,6 @@ public class LevelProgression : MonoBehaviour
 
 public class LevelProgress
 {
-    public string LevelName;
+    public string LastLevelName;
+    public List<string> AvailableLevels = new List<string>();
 }
