@@ -15,10 +15,10 @@ MonoBehaviour:
   _bonusInfo:
     <ID>k__BackingField: 5
     <BonusName>k__BackingField: Bomb
-    <BaseBonusTime>k__BackingField: 1
+    <BaseBonusTime>k__BackingField: 0
     <BaseCost>k__BackingField: 1
     <CostForLevel>k__BackingField: 1
-    <BonusTimeForLevel>k__BackingField: 1
+    <BonusTimeForLevel>k__BackingField: 0
     <Level>k__BackingField: 1
     <TimeBeforeDestroying>k__BackingField: 5
   _bonusIcon: {fileID: 21300000, guid: 1a63b47351cb38e45a78fd5c50662a8f, type: 3}
