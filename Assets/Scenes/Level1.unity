@@ -855,6 +855,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d60803b6670884e9d8de1b0e3d7a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1124835756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1992799386527685593, guid: e36c8384c4acdd94281a96b1a61c9518, type: 3}
+  m_PrefabInstance: {fileID: 6716874707236763873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8e6ec6fbddc0641a0951fd31d56423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1199420874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3587863793590227156, guid: c8d08ec4d9894c846920d2698462f978, type: 3}
@@ -2285,6 +2296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 418520417}
     m_Modifications:
+    - target: {fileID: 337467446524344113, guid: 43037633b0fc0694dbee45e3fc1c73ac, type: 3}
+      propertyPath: _foodStorage
+      value: 
+      objectReference: {fileID: 1124835756}
     - target: {fileID: 937731930085439614, guid: 43037633b0fc0694dbee45e3fc1c73ac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
