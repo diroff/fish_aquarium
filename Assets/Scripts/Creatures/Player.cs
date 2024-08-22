@@ -19,6 +19,7 @@ public class Player : Creature
     public GameObject ShieldPlacement => _shieldPlacement;
 
     public UnityAction<int, int> FoodCountChanged;
+    public UnityAction WasRespawn;
 
     protected override void Start()
     {
@@ -60,6 +61,7 @@ public class Player : Creature
 
     public void Respawn()
     {
+        WasRespawn?.Invoke();
         gameObject.SetActive(true);
         SetImmortallity(2f);
     }

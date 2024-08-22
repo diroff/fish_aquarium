@@ -4,17 +4,16 @@ public class UIStartPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseButton;
     [SerializeField] private GameObject _startGameButton;
-    [SerializeField] private LevelTime _levelTime;
+    [SerializeField] private Level _level;
 
     private void Start()
     {
-        _levelTime.StopTime();
         _pauseButton.SetActive(false);
     }
 
     public void StartGame()
     {
-        _levelTime.StartTime();
+        _level.StartLevel();
         _pauseButton.SetActive(true);
         _startGameButton.SetActive(false);
     }
