@@ -6,10 +6,8 @@ using UnityEngine.Events;
 public abstract class Bonus : MonoBehaviour, IInteractable
 {
     [SerializeField] private BonusData _bonusData;
-    
-    public UnityEvent BonusStarted;
-    public UnityEvent BonusEnded;
-    public UnityAction<float, float> BonusTimeChanged;
+
+    [SerializeField] private bool _isDestroyOnEnd = true;
 
     protected float CurrentTime;
     protected Player Player;
@@ -18,10 +16,14 @@ public abstract class Bonus : MonoBehaviour, IInteractable
     private SpriteRenderer _spriteRenderer;
 
     private bool _bonusWasTaked = false;
-
     private float _currentTimeToDestroy = 0f;
 
     public BonusData BonusData => _bonusData;
+    public bool BonusWasTaked => _bonusWasTaked;
+
+    public UnityEvent BonusStarted;
+    public UnityEvent BonusEnded;
+    public UnityAction<float, float> BonusTimeChanged;
 
     private void Awake()
     {
@@ -40,12 +42,12 @@ public abstract class Bonus : MonoBehaviour, IInteractable
         _spriteRenderer.enabled = false;
 
         Player = creature as Player;
-        _bonusWasTaked = true;
         UseBonus();
     }
 
     public virtual void UseBonus()
     {
+        _bonusWasTaked = true;
         CurrentTime = _bonusData.BonusInfo.TotalBonusTime();
         BonusStarted?.Invoke();
         StartCoroutine(TimeChecker());
@@ -54,7 +56,15 @@ public abstract class Bonus : MonoBehaviour, IInteractable
     public virtual void StopBonus()
     {
         BonusEnded?.Invoke();
-        Destroy(gameObject);
+        _bonusWasTaked = false;
+
+        if (_isDestroyOnEnd)
+            Destroy(gameObject);
+    }
+
+    public void SetPlayer(Player player)
+    {
+        Player = player;
     }
 
     protected IEnumerator TimeChecker()
@@ -77,7 +87,7 @@ public abstract class Bonus : MonoBehaviour, IInteractable
             yield return null;
         }
 
-        if (!_bonusWasTaked)
+        if (!_bonusWasTaked && _isDestroyOnEnd)
             Destroy(gameObject);
     }
 }
