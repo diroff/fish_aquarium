@@ -20,30 +20,59 @@ public class BonusProgression : MonoBehaviour
         if (_data != null)
             return;
 
+        bool needToSave = false;
+
         _storageService.Load<BonusDatas>(Key, data =>
         {
             if (data == null)
                 FirstSave();
+
             else
+            {
                 _data = data;
+                needToSave = NewBonusesWasAdded();
+            }
         });
+
+        if(needToSave)
+            SaveData(_data);
+    }
+
+    private IEnumerable<ProgressionBonusData> GetUpgradableBonuses()
+    {
+        var allBonusData = Resources.LoadAll<BonusData>("Data/BonusData");
+
+        foreach (var item in allBonusData)
+        {
+            if (item.CanBeUpgraded)
+                yield return new ProgressionBonusData(item.BonusInfo.ID, 1);
+        }
     }
 
     private void FirstSave()
     {
         BonusDatas data = new BonusDatas();
+        data.Datas.AddRange(GetUpgradableBonuses());
+        data.Datas.Sort((x, y) => x.ID.CompareTo(y.ID));
+        SaveData(data);
+    }
 
-        var allBonusData = Resources.LoadAll<BonusData>("Data/BonusData");
+    private bool NewBonusesWasAdded()
+    {
+        bool dataWasChanged = false;
 
-        foreach (var item in allBonusData)
+        foreach (var bonus in GetUpgradableBonuses())
         {
-            if(item.CanBeUpgraded)
-                data.Datas.Add(new ProgressionBonusData(item.BonusInfo.ID, item.BonusInfo.Level));
+            if (!_data.Datas.Exists(data => data.ID == bonus.ID))
+            {
+                _data.Datas.Add(bonus);
+                dataWasChanged = true;
+            }
         }
 
-        data.Datas.Sort((x, y) => x.ID.CompareTo(y.ID));
+        _data.Datas.Sort((x, y) => x.ID.CompareTo(y.ID));
 
-        SaveData(data);
+        return dataWasChanged;
     }
 
     public void SaveData(BonusDatas data)
