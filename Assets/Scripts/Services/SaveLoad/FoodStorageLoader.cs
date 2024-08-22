@@ -6,7 +6,7 @@ public class FoodStorageLoader : MonoBehaviour
     public const string Key = "Food";
 
     private IStorageService _storageService;
-    private FoodData _food;
+    private FoodData _data;
 
     public UnityAction<int, int> FoodCountChanged;
     public UnityAction OnStorageServiceCreated;
@@ -16,21 +16,23 @@ public class FoodStorageLoader : MonoBehaviour
         _storageService = new JsonToFileStorageService();
         OnStorageServiceCreated?.Invoke();
 
-        _storageService.Load<FoodData>(Key, data =>
-        {
-            if (data == default)
-                FirstSave();
-
-            Load();
-        });
+        Load();
     }
 
     public void Load()
     {
+        if (_data != null)
+            return;
+
         _storageService.Load<FoodData>(Key, data =>
         {
-            _food = data;
-            FoodCountChanged?.Invoke(data.FoodCount, data.FoodCount);
+            if (data == null)
+                FirstSave();
+
+            _data = data;
+
+            if (_data != null)
+                FoodCountChanged?.Invoke(_data.FoodCount, _data.FoodCount);
         });
     }
 
@@ -67,7 +69,7 @@ public class FoodStorageLoader : MonoBehaviour
 
     public FoodData GetData()
     {
-        return _food;
+        return _data;
     }
 }
 
