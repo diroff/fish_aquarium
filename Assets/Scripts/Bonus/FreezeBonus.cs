@@ -1,37 +1,22 @@
-using UnityEngine;
-
-public class FreezeBonus : Bonus, IBonusDependencies
+public class FreezeBonus : OnetimeBonus
 {
-    [SerializeField] private ObjectPool _pool;
-    [SerializeField] private LevelEnemies _levelEnemies;
-
-    public override void UseBonus()
+    protected override void PerfomBonusEffect()
     {
-        base.UseBonus();
+        base.PerfomBonusEffect();
 
-        foreach (var enemy in _pool.CurrentEnemies)
+        foreach (var enemy in Pool.CurrentEnemies)
             enemy.FreezeMoving();
 
-        _levelEnemies.FreezeSpawn();
+        LevelEnemies.FreezeSpawn();
     }
 
     public override void StopBonus()
     {
         base.StopBonus();
 
-        foreach (var enemy in _pool.CurrentEnemies)
+        foreach (var enemy in Pool.CurrentEnemies)
             enemy.UnfreezeMoving();
 
-        _levelEnemies.UnFreezeSpawn();
-    }
-
-    public void SetObjectPool(ObjectPool objectPool)
-    {
-        _pool = objectPool;
-    }
-
-    public void SetLevelEnemies(LevelEnemies levelEnemies)
-    {
-        _levelEnemies = levelEnemies;
+        LevelEnemies.UnFreezeSpawn();
     }
 }

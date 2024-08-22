@@ -1,28 +1,14 @@
 using System.Collections.Generic;
-using UnityEngine;
 
-public class DestroyAllEnemyBonus : Bonus, IBonusDependencies
+public class DestroyAllEnemyBonus : OnetimeBonus
 {
-    [SerializeField] private ObjectPool _pool;
-    [SerializeField] private LevelEnemies _levelEnemies;
-
-    public override void UseBonus()
+    protected override void PerfomBonusEffect()
     {
-        base.UseBonus();
+        base.PerfomBonusEffect();
 
-        var enemiesToDestroy = new List<Enemy>(_pool.CurrentEnemies);
+        var enemiesToDestroy = new List<Enemy>(Pool.CurrentEnemies);
 
         foreach (var enemy in enemiesToDestroy)
             Player.EatOtherCreature(Player, enemy);
-    }
-
-    public void SetObjectPool(ObjectPool objectPool)
-    {
-        _pool = objectPool;
-    }
-
-    public void SetLevelEnemies(LevelEnemies levelEnemies)
-    {
-        _levelEnemies = levelEnemies;
     }
 }
