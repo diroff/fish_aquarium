@@ -13,6 +13,7 @@ public class OnetimeBonus : Bonus, IBonusDependencies
     private void Start()
     {
         _availableCount = 3; // For test
+        BonusCountWasChanged?.Invoke(_availableCount);
     }
 
     public override void UseBonus()
