@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
   - _bonusPrefab: {fileID: 7303032508110835931, guid: 6ba78171ab0ae5c4cb9cab04b72f6611, type: 3}
-    _timeBeforeSpawn: 3
+    _timeBeforeSpawn: 2
     _timeBeforeDestroyBonus: 5
   _spawner: {fileID: 1429179850}
 --- !u!4 &1177072116
