@@ -1575,10 +1575,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1977684430}
     m_Modifications:
     - target: {fileID: 1047773138397501872, guid: 3e9de0fccc84ef14ab852dd8a60489d0, type: 3}
-      propertyPath: _icon
-      value: 
-      objectReference: {fileID: 1127498620, guid: ec655ad6a03b0f049b65c8a4ce61de5b, type: 3}
-    - target: {fileID: 1047773138397501872, guid: 3e9de0fccc84ef14ab852dd8a60489d0, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1813774245}

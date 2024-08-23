@@ -129,6 +129,7 @@ MonoBehaviour:
   _animator: {fileID: 1249768377671059472}
   _startLevel: 1
   _spriteSize: 0.64
+  _creatureID: 0
 --- !u!114 &9189097026237479839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,12 +218,12 @@ SpriteRenderer:
   m_SortingLayerID: -751410667
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 952917723, guid: c2d26db8fad693e40b625cb468401f9e, type: 3}
+  m_Sprite: {fileID: 372873300, guid: 713dc396df2dc1a4889e72df7c94a0f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.97265625, y: 0.6386719}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

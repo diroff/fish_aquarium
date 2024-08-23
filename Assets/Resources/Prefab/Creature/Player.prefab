@@ -561,12 +561,12 @@ SpriteRenderer:
   m_SortingLayerID: 745930255
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 375416520, guid: 7624f88c146d18e4bad759cb9082eba3, type: 3}
+  m_Sprite: {fileID: -1473581812, guid: 1bcbd854935213647a57f84a40c9b34f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.97265625, y: 0.6386719}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
