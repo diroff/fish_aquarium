@@ -795,6 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799690735}
   - component: {fileID: 799690734}
+  - component: {fileID: 799690736}
   m_Layer: 0
   m_Name: OnetimeBonusUsing
   m_TagString: Untagged
@@ -835,6 +836,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799690736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799690733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2204326e8cb12046891461e01d08e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833581399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2146809162665488499, guid: 50449e2832f117140976d486651de365, type: 3}
@@ -2727,9 +2740,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1575490062314935710, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575490062314935710, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575490062314935710, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575490062314935710, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575490062314935710, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575490062314935710, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2240501909913278585, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
       propertyPath: m_Name
       value: UIUseBonusPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280966561434328613, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280966561434328613, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280966561434328613, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280966561434328613, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280966561434328613, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280966561434328613, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3918658579759253576, guid: 083afa5cd945cc44692500e6878591bb, type: 3}
       propertyPath: _bonus
