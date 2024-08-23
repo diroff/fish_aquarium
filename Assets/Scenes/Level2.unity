@@ -813,6 +813,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 418520417}
     m_Modifications:
     - target: {fileID: 312913086554854703, guid: 8c7f94cb08d6f78418f242a80a50c309, type: 3}
+      propertyPath: _level
+      value: 
+      objectReference: {fileID: 1977684429}
+    - target: {fileID: 312913086554854703, guid: 8c7f94cb08d6f78418f242a80a50c309, type: 3}
       propertyPath: _levelTime
       value: 
       objectReference: {fileID: 1977684431}
@@ -2060,6 +2064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quests:
   - {fileID: 1112317905}
+  _levelTime: {fileID: 1977684431}
 --- !u!4 &1977684430
 Transform:
   m_ObjectHideFlags: 0
