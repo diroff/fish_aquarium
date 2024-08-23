@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fish
+  m_Name: FishAtlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -41,7 +41,7 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
-      enableAlphaDilation: 0
+      enableAlphaDilation: 1
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
@@ -197,5 +197,5 @@ SpriteAtlas:
   - FishGreen2
   - FishBlue2
   m_RenderDataMap: {}
-  m_Tag: Fish
+  m_Tag: FishAtlas
   m_IsVariant: 0

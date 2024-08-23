@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: _UIButtonAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: b0d431c40d66c7b44b5fe20f44c01ec1, type: 3}
+    - {fileID: 2800000, guid: 6e291a726219a6e4e84ebefa2c4e1cff, type: 3}
+    - {fileID: 2800000, guid: 597e2ec123592c04d9be17488357cee0, type: 3}
+    - {fileID: 2800000, guid: c4900dfb84874064fb0a51ca2147f07f, type: 3}
+    - {fileID: 2800000, guid: 786ef89101cd72043b9b59484dd9280f, type: 3}
+    - {fileID: 2800000, guid: 218459f0e62e2994683305e1c23410de, type: 3}
+    - {fileID: 2800000, guid: ea7b51ecdf515c8489a2995a6ec3e546, type: 3}
+    - {fileID: 2800000, guid: 002c393bcc1bdc342b12eacd48f415f6, type: 3}
+    - {fileID: 2800000, guid: 6accd1b0d2968db4ba2a88c7c3b7e79b, type: 3}
+    - {fileID: 2800000, guid: 82e3a241f65c9bf4ca53752c8d7c180c, type: 3}
+    - {fileID: 2800000, guid: 02e7fcb081172014a993f9e773129f62, type: 3}
+    - {fileID: 2800000, guid: c7dcfe60225174a44a245ec99d06d629, type: 3}
+    - {fileID: 2800000, guid: 75e2d1531a679b847b0ae623e036cae3, type: 3}
+    - {fileID: 2800000, guid: 3d29f4a7ed75a0847b39e52ea45911b7, type: 3}
+    - {fileID: 2800000, guid: 0685fca4fd7223b47a1df0bed92e8192, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - c7dcfe60225174a44a245ec99d06d629: 21300000
+    - 6accd1b0d2968db4ba2a88c7c3b7e79b: 21300000
+    - 02e7fcb081172014a993f9e773129f62: 21300000
+    - 218459f0e62e2994683305e1c23410de: 21300000
+    - 82e3a241f65c9bf4ca53752c8d7c180c: 21300000
+    - 786ef89101cd72043b9b59484dd9280f: 21300000
+    - 597e2ec123592c04d9be17488357cee0: 21300000
+    - 6e291a726219a6e4e84ebefa2c4e1cff: 21300000
+    - 75e2d1531a679b847b0ae623e036cae3: 21300000
+    - 0685fca4fd7223b47a1df0bed92e8192: 21300000
+    - b0d431c40d66c7b44b5fe20f44c01ec1: 21300000
+    - 3d29f4a7ed75a0847b39e52ea45911b7: 21300000
+    - 002c393bcc1bdc342b12eacd48f415f6: 21300000
+    - c4900dfb84874064fb0a51ca2147f07f: 21300000
+    - ea7b51ecdf515c8489a2995a6ec3e546: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c7dcfe60225174a44a245ec99d06d629, type: 3}
+  - {fileID: 21300000, guid: 6accd1b0d2968db4ba2a88c7c3b7e79b, type: 3}
+  - {fileID: 21300000, guid: 02e7fcb081172014a993f9e773129f62, type: 3}
+  - {fileID: 21300000, guid: 218459f0e62e2994683305e1c23410de, type: 3}
+  - {fileID: 21300000, guid: 82e3a241f65c9bf4ca53752c8d7c180c, type: 3}
+  - {fileID: 21300000, guid: 786ef89101cd72043b9b59484dd9280f, type: 3}
+  - {fileID: 21300000, guid: 597e2ec123592c04d9be17488357cee0, type: 3}
+  - {fileID: 21300000, guid: 6e291a726219a6e4e84ebefa2c4e1cff, type: 3}
+  - {fileID: 21300000, guid: 75e2d1531a679b847b0ae623e036cae3, type: 3}
+  - {fileID: 21300000, guid: 0685fca4fd7223b47a1df0bed92e8192, type: 3}
+  - {fileID: 21300000, guid: b0d431c40d66c7b44b5fe20f44c01ec1, type: 3}
+  - {fileID: 21300000, guid: 3d29f4a7ed75a0847b39e52ea45911b7, type: 3}
+  - {fileID: 21300000, guid: 002c393bcc1bdc342b12eacd48f415f6, type: 3}
+  - {fileID: 21300000, guid: c4900dfb84874064fb0a51ca2147f07f, type: 3}
+  - {fileID: 21300000, guid: ea7b51ecdf515c8489a2995a6ec3e546, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - IconButton_Large_Orange_Square
+  - IconButton_Large_Green_Square
+  - IconButton_Large_Orange_Rounded
+  - IconButton_Large_Blue_Square
+  - IconButton_Large_Orange_Circle
+  - IconButton_Large_Blue_Rounded
+  - IconButton_Large_Blank_Square
+  - IconButton_Large_Blank_Rounded
+  - IconButton_Large_Red_Circle
+  - IconButton_Large_Red_Square
+  - IconButton_Large_Blank_Circle
+  - IconButton_Large_Red_Rounded
+  - IconButton_Large_Green_Rounded
+  - IconButton_Large_Blue_Circle
+  - IconButton_Large_Green_Circle
+  m_RenderDataMap: {}
+  m_Tag: _UIButtonAtlas
+  m_IsVariant: 0
