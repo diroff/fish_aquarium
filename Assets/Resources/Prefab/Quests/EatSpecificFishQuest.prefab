@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questGoal: Eat black fish
-  _icon: {fileID: 1863731919, guid: 325c7f490ef76804b8158786ab2ce2fe, type: 3}
+  _icon: {fileID: 21300000, guid: ea7dc84006f6d514cbbfef9da3c364f1, type: 3}
   _requiredCount: 3
   _goal: {fileID: 1211114554625385885, guid: daf1fca37379b0e42b2acefae40ccde2, type: 3}
   _pool: {fileID: 0}
