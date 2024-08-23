@@ -121,19 +121,11 @@ public class OnetimeBonusData
         Count = count;
     }
 
-    public void AddCount(int count)
+    public void SetCount(int count)
     {
-        if (count <= 0)
+        if (count < 0)
             return;
 
-        Count += count;
-    }
-
-    public void ReduceCount(int count)
-    {
-        if (count <= 0)
-            return;
-
-        Count -= count;
+        Count = count;
     }
 }

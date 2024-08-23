@@ -33,7 +33,7 @@ public class UIOnetimeBonus : MonoBehaviour
         _bonus.BonusCountWasChanged -= OnBonusCountChanged;
     }
 
-    private void OnBonusCountChanged(int count)
+    private void OnBonusCountChanged(int id, int count)
     {
         _bonusCountText.text = count.ToString();
 

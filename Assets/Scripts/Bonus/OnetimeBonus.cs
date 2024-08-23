@@ -8,13 +8,7 @@ public class OnetimeBonus : Bonus, IBonusDependencies
 
     private int _availableCount;
 
-    public UnityAction<int> BonusCountWasChanged;
-
-    private void Start()
-    {
-        _availableCount = 3; // For test
-        BonusCountWasChanged?.Invoke(_availableCount);
-    }
+    public UnityAction<int, int> BonusCountWasChanged;
 
     public override void UseBonus()
     {
@@ -26,9 +20,23 @@ public class OnetimeBonus : Bonus, IBonusDependencies
 
         base.UseBonus();
 
-        _availableCount--;
-        BonusCountWasChanged?.Invoke(_availableCount);
+        ReduceAvailableBonus();
         PerfomBonusEffect();
+    }
+
+    public void AddAvailableBonus(int count)
+    {
+        if (count < 0)
+            return;
+
+        _availableCount += count;
+        BonusCountWasChanged?.Invoke(BonusData.BonusInfo.ID, _availableCount);
+    }
+
+    public void ReduceAvailableBonus()
+    {
+        _availableCount--;
+        BonusCountWasChanged?.Invoke(BonusData.BonusInfo.ID, _availableCount);
     }
 
     protected virtual void PerfomBonusEffect() { }

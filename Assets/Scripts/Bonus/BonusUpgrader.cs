@@ -50,23 +50,19 @@ public class BonusUpgrader : MonoBehaviour
     {
         _bonusData = _bonusProgression.GetDataFieldFromID(item.BonusData.BonusInfo.ID);
 
-        if (CanUpgradeBonus(item))
-        {
-            var cost = item.BonusData.BonusInfo.TotalBonusCost();
-            _foodStorage.ReduceMoney((int)cost);
+        if (!CanUpgradeBonus(item))
+            return;
 
-            item.BonusData.BonusInfo.AddLevel(1);
-            item.BonusData.BonusLevelWasUpdated?.Invoke(item.BonusData.BonusInfo.Level);
-            item.ItemWasUpdated?.Invoke();
-            BonusWasUpgraded?.Invoke(item);
+        var cost = item.BonusData.BonusInfo.TotalBonusCost();
+        _foodStorage.ReduceMoney((int)cost);
 
-            _bonusData.SetLevel(item.BonusData.BonusInfo.Level);
-            _bonusProgression.SaveData(_datas);
-            Debug.Log($"Bonus {item.BonusData.name} was upgraded to level {item.BonusData.BonusInfo.Level}");
-        }
-        else
-        {
-            Debug.Log("Not enough money to upgrade the bonus!");
-        }
+        item.BonusData.BonusInfo.AddLevel(1);
+        item.BonusData.BonusLevelWasUpdated?.Invoke(item.BonusData.BonusInfo.Level);
+        item.ItemWasUpdated?.Invoke();
+        BonusWasUpgraded?.Invoke(item);
+
+        _bonusData.SetLevel(item.BonusData.BonusInfo.Level);
+        _bonusProgression.SaveData(_datas);
+        Debug.Log($"Bonus {item.BonusData.name} was upgraded to level {item.BonusData.BonusInfo.Level}");
     }
 }

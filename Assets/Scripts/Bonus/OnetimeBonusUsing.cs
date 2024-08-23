@@ -10,6 +10,8 @@ public class OnetimeBonusUsing : MonoBehaviour
 
     [SerializeField] private Player _player;
 
+    public List<OnetimeBonus> Bonuses => _bonuses;
+
     private void Awake()
     {
         SetupBonuses();
@@ -22,6 +24,18 @@ public class OnetimeBonusUsing : MonoBehaviour
             bonus.SetPlayer(_player);
             bonus.SetLevelEnemies(_enemies);
             bonus.SetObjectPool(_objectPool);
+        }
+    }
+
+    public void SetBonusCount(int id, int count)
+    {
+        foreach(var bonus in _bonuses)
+        {
+            if (bonus.BonusData.BonusInfo.ID != id)
+                continue;
+
+            bonus.AddAvailableBonus(count);
+            break;
         }
     }
 
