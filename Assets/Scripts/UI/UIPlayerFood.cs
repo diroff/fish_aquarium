@@ -6,32 +6,32 @@ public class UIPlayerFood : MonoBehaviour
     [SerializeField] private FoodStorageLoader _foodStorage;
     [SerializeField] private TextMeshProUGUI _foodCountText;
 
-    private bool _dataLoaded;
-
     private void OnEnable()
     {
-        _foodStorage.OnStorageServiceCreated += OnStorageServiceCreated;
+        _foodStorage.FoodCountChanged += OnFoodCountChanged;
 
-        if(_dataLoaded)
-            _foodStorage.FoodCountChanged += OnFoodCountChanged;
+        if (_foodStorage.IsInitialized)
+            Initialize();
     }
 
     private void OnDisable()
     {
-        _foodStorage.OnStorageServiceCreated -= OnStorageServiceCreated;
         _foodStorage.FoodCountChanged -= OnFoodCountChanged;
+    }
+
+    private void Initialize()
+    {
+        var data = _foodStorage.GetData();
+
+        if (data == null)
+            return;
+
+        OnFoodCountChanged(0, data.FoodCount);
     }
 
     private void OnFoodCountChanged(int previousValue, int currentValue)
     {
         _foodCountText.gameObject.SetActive(true);
         _foodCountText.text = currentValue.ToString();
-    }
-
-    private void OnStorageServiceCreated()
-    {
-        _foodStorage.FoodCountChanged += OnFoodCountChanged;
-        _foodStorage.Load();
-        _dataLoaded = true;
     }
 }

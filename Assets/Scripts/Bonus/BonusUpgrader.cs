@@ -17,7 +17,9 @@ public class BonusUpgrader : MonoBehaviour
     private void OnEnable()
     {
         _foodStorage.FoodCountChanged += OnFoodCountChanged;
-        _currentFoodCount = _foodStorage.GetData().FoodCount;
+
+        if(_foodStorage.IsInitialized)
+            _currentFoodCount = _foodStorage.GetData().FoodCount;
     }
 
     private void OnDisable()

@@ -5,18 +5,20 @@ public class FoodStorageLoader : MonoBehaviour
 {
     public const string Key = "Food";
 
+    public bool IsInitialized {  get; private set; }
+
     private IStorageService _storageService;
     private FoodData _data;
 
     public UnityAction<int, int> FoodCountChanged;
-    public UnityAction OnStorageServiceCreated;
 
     private void Awake()
     {
         _storageService = new JsonToFileStorageService();
-        OnStorageServiceCreated?.Invoke();
 
         Load();
+
+        IsInitialized = true;
     }
 
     public void Load()
