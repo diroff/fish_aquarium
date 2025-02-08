@@ -53,6 +53,6 @@ public class BonusProgressionLoading : MonoBehaviour
         }
 
         DataWasLoaded?.Invoke();
-        Debug.Log("Progress was loaded!");
+        //Debug.Log("Progress was loaded!");
     }
 }

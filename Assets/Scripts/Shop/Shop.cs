@@ -4,8 +4,6 @@ using UnityEngine.Events;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private BonusProgressionLoading _dataLoader;
-
     private BonusData[] _data;
 
     public List<ShopItem> Datas { get; private set; } = new List<ShopItem>();
@@ -13,22 +11,9 @@ public class Shop : MonoBehaviour
 
     public UnityAction BonusWasLoaded;
 
-    private void OnEnable()
+    public void Initialize(BonusData[] datas)
     {
-        if (_data == null)
-            OnDataLoaded();
-
-        _dataLoader.DataWasLoaded += OnDataLoaded;
-    }
-
-    private void OnDisable()
-    {
-        _dataLoader.DataWasLoaded -= OnDataLoaded;
-    }
-
-    private void OnDataLoaded()
-    {
-        _data = _dataLoader.GetCurrentBonusData();
+        _data = datas;
 
         SetData();
     }
