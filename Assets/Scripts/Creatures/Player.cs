@@ -6,7 +6,6 @@ public class Player : Creature
 {
     [SerializeField] private GameObject _shieldPlacement;
     [SerializeField] private GameObject _immortalPlacement;
-    [SerializeField] private DynamicJoystick _joystick;
 
     private int _foodCount;
     private int _foodMultiplier;
@@ -28,10 +27,12 @@ public class Player : Creature
         LevelChanged?.Invoke(0, CurrentLevel);
     }
 
-    protected override void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        base.Update();
-        GetInput();
+        if (!collision.TryGetComponent(out IInteractable interactable))
+            return;
+
+        interactable.Interact(this);
     }
 
     public override void Die()
@@ -119,18 +120,8 @@ public class Player : Creature
         _shieldBonus = bonus;
     }
 
-    private void GetInput()
+    public void SetInput(Vector2 direction)
     {
-        InputVector = new Vector2(_joystick.Horizontal, _joystick.Vertical);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var interactable = collision.GetComponent<IInteractable>();
-
-        if (interactable == null)
-            return;
-
-        interactable.Interact(this);
+        InputVector = direction;
     }
 }
