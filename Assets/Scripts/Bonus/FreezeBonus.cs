@@ -1,8 +1,13 @@
-public class FreezeBonus : OnetimeBonus
+using UnityEngine;
+
+public class FreezeBonus : Bonus, IBonusDependencies
 {
-    protected override void PerfomBonusEffect()
+    [SerializeField] protected ObjectPool Pool;
+    [SerializeField] protected LevelEnemies LevelEnemies;
+
+    public override void UseBonus()
     {
-        base.PerfomBonusEffect();
+        base.UseBonus();
 
         foreach (var enemy in Pool.CurrentEnemies)
             enemy.FreezeMoving();
@@ -18,5 +23,15 @@ public class FreezeBonus : OnetimeBonus
             enemy.UnfreezeMoving();
 
         LevelEnemies.UnFreezeSpawn();
+    }
+
+    public void SetLevelEnemies(LevelEnemies levelEnemies)
+    {
+        LevelEnemies = levelEnemies;
+    }
+
+    public void SetObjectPool(ObjectPool objectPool)
+    {
+        Pool = objectPool;
     }
 }
