@@ -15,11 +15,11 @@ MonoBehaviour:
   _bonusInfo:
     <ID>k__BackingField: 2
     <BonusName>k__BackingField: X Value Food
-    <BaseBonusTime>k__BackingField: 3
-    <BaseCost>k__BackingField: 25
-    <CostForLevel>k__BackingField: 75
+    <BaseBonusTime>k__BackingField: 2
+    <BaseCost>k__BackingField: 40
+    <CostForLevel>k__BackingField: 65
     <BonusTimeForLevel>k__BackingField: 1
-    <Level>k__BackingField: 2
+    <Level>k__BackingField: 4
     <TimeBeforeDestroying>k__BackingField: 5
   _bonusIcon: {fileID: 21300000, guid: f81ed99643378284ba6623f4bf5a3266, type: 3}
   _canBeUpgraded: 1

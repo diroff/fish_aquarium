@@ -48,7 +48,7 @@ public class BonusInfo
 
     public float TotalBonusTime()
     {
-        return (BaseBonusTime + BonusTimeForLevel) * Level;
+        return BaseBonusTime + (BonusTimeForLevel * Level);
     }
 
     public float TotalBonusCost()

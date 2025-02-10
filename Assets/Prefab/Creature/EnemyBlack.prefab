@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1211114554625385886}
   - component: {fileID: 1211114554625385887}
   - component: {fileID: 1211114554625385884}
-  - component: {fileID: 1211114554625385885}
+  - component: {fileID: -7678866400121850188}
   - component: {fileID: 8618021355072155374}
   m_Layer: 0
   m_Name: EnemyBlack
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9606594, y: 0.6012104}
   m_EdgeRadius: 0
---- !u!114 &1211114554625385885
+--- !u!114 &-7678866400121850188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1211114554625385882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31aaa99a597ce714fb44cdc400475a55, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c0b15c8c9bb35e4ebba1e2ce0bc323e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxSpeed: 10
@@ -130,6 +130,8 @@ MonoBehaviour:
   _startLevel: 1
   _spriteSize: 0.64
   _creatureID: 1
+  _minChangeTime: 5
+  _maxChangeTime: 15
 --- !u!114 &8618021355072155374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textField: {fileID: 5482607257192103082}
-  _creature: {fileID: 1211114554625385885}
+  _creature: {fileID: -7678866400121850188}
 --- !u!1 &1211114554940379558
 GameObject:
   m_ObjectHideFlags: 0

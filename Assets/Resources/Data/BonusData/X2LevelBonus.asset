@@ -15,11 +15,11 @@ MonoBehaviour:
   _bonusInfo:
     <ID>k__BackingField: 1
     <BonusName>k__BackingField: X Value Level
-    <BaseBonusTime>k__BackingField: 3
-    <BaseCost>k__BackingField: 20
-    <CostForLevel>k__BackingField: 65
+    <BaseBonusTime>k__BackingField: 2
+    <BaseCost>k__BackingField: 55
+    <CostForLevel>k__BackingField: 70
     <BonusTimeForLevel>k__BackingField: 1
-    <Level>k__BackingField: 2
+    <Level>k__BackingField: 4
     <TimeBeforeDestroying>k__BackingField: 5
   _bonusIcon: {fileID: 21300000, guid: acd61189adde36b4b84ba6d1b7547ce8, type: 3}
   _canBeUpgraded: 1
